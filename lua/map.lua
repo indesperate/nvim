@@ -14,7 +14,7 @@ map('n', '<c-l>', '<c-w><c-l>', opt)
 map('v', 'K', 'k', opt)
 
 -- plugins
-map('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opt)
+map('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', opt)
 
 local telescope = require('telescope.builtin')
 map('n', '<leader>f', telescope.find_files, opt)
@@ -31,3 +31,8 @@ map('n', 'gr', vim.lsp.buf.references, opt)
 map('n', '<leader>r', vim.lsp.buf.rename, opt)
 map('n', '<leader>D', vim.lsp.buf.type_definition, opt)
 map('n', '<leader>a', vim.lsp.buf.code_action, opt)
+
+-- useful map
+map('v', 'J', ":m '>+1<cr>gv=gv", opt)
+map('v', 'K', ":m '<-2<cr>gv=gv", opt)
+
