@@ -10,12 +10,17 @@ require('nvim-treesitter.configs').setup {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner"
+        ["ic"] = "@class.inner",
+        ["ai"] = "@conditional.outer",
+        ["ii"] = "@conditional.inner",
+        ["al"] = "@loop.outer",
+        ["il"] = "@loop.inner"
       },
       selection_modes = {
-        ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
-        ['@class.outer'] = '<c-v>', -- blockwise
+        ['@function.outer'] = 'V',
+        ['@class.outer'] = 'V',
+        ['@conditional.outer'] = 'V',
+        ['@loop.outer'] = 'V'
       },
     },
   },
