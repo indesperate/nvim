@@ -20,5 +20,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'onsails/lspkind-nvim'
     use 'numToStr/Comment.nvim'
+    use 'ggandor/leap.nvim'
+    use 'kylechui/nvim-surround'
 end)
 

@@ -12,4 +12,8 @@ require 'plugins.highlight'
 
 require 'plugins.com'
 
+require 'plugins.leap'
+
+require 'plugins.obj'
+
 require 'map'
