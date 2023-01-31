@@ -16,10 +16,6 @@ map('v', 'K', 'k', opt)
 -- plugins
 map('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', opt)
 
-local telescope = require('telescope.builtin')
-map('n', '<leader>f', telescope.find_files, opt)
-map('n', '<leader>g', telescope.live_grep, opt)
-
 -- lsp map
 map('i', '<c-j>', vim.lsp.buf.signature_help, opt)
 map('n', 'K', vim.lsp.buf.hover, opt)
