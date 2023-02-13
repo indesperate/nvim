@@ -8,8 +8,8 @@ require("mason-lspconfig").setup_handlers {
             capabilities = capabilities
         }
     end,
-    ["sumneko_lua"] = function()
-        require('lspconfig').sumneko_lua.setup {
+    ["lua_ls"] = function()
+        require('lspconfig').lua_ls.setup {
             capabilities = capabilities,
             settings = {
                 Lua = {
