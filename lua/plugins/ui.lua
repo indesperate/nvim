@@ -26,3 +26,5 @@ require('bufferline').setup {
 
 -- file explorer
 require('nvim-tree').setup()
+
+require('colorizer').setup()

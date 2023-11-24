@@ -23,5 +23,6 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'ggandor/leap.nvim'
     use 'kylechui/nvim-surround'
+    use 'norcalli/nvim-colorizer.lua'
 end)
 
