@@ -24,5 +24,6 @@ return require('packer').startup(function(use)
     use 'ggandor/leap.nvim'
     use 'kylechui/nvim-surround'
     use 'norcalli/nvim-colorizer.lua'
+    use 'christoomey/vim-tmux-navigator'
 end)
 

@@ -16,19 +16,30 @@ map('v', 'K', 'k', opt)
 -- plugins
 map('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', opt)
 
+local builtin = require('telescope.builtin')
+map('n', '<leader>ff', builtin.find_files, opt)
+map('n', '<leader>fg', builtin.live_grep, opt)
+map('n', '<leader>fb', builtin.buffers, opt)
+map('n', '<leader>fh', builtin.help_tags, opt)
+map('n', '<leader>fc', builtin.command_history, opt)
+map('n', '<leader>fz', builtin.current_buffer_fuzzy_find, opt)
+
 -- lsp map
+map('n', 'gr', builtin.lsp_references, opt)
+map('n', 'gd', builtin.lsp_definitions, opt)
+map('n', '<leader>D', builtin.lsp_type_definitions, opt)
+map('n', 'gi', builtin.lsp_implementations, opt)
+map('n', '<leader>.', builtin.quickfix, opt)
+
 map('i', '<c-j>', vim.lsp.buf.signature_help, opt)
 map('n', 'K', vim.lsp.buf.hover, opt)
-map('n', 'gd', vim.lsp.buf.definition, opt)
 map('n', 'gD', vim.lsp.buf.declaration, opt)
 map('n', '<leader>=', vim.lsp.buf.format, opt)
-map('n', 'gi', vim.lsp.buf.implementation, opt)
-map('n', 'gr', vim.lsp.buf.references, opt)
 map('n', '<leader>r', vim.lsp.buf.rename, opt)
-map('n', '<leader>D', vim.lsp.buf.type_definition, opt)
 map('n', '<leader>a', vim.lsp.buf.code_action, opt)
 
 -- useful map
 map('v', 'J', ":m '>+1<cr>gv=gv", opt)
 map('v', 'K', ":m '<-2<cr>gv=gv", opt)
+
 
