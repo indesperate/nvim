@@ -1,6 +1,6 @@
 require 'basic'
 
-require 'pack'
+require 'lazy-boot'
 
 require 'plugins.ui'
 
