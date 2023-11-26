@@ -43,3 +43,10 @@ map('v', 'J', ":m '>+1<cr>gv=gv", opt)
 map('v', 'K', ":m '<-2<cr>gv=gv", opt)
 
 
+if os.getenv("TMUX") then
+    vim.g.tmux_navigator_no_mappings = 1
+    map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+    map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+    map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+    map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
+end
