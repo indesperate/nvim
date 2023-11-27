@@ -1,6 +1,16 @@
 -- lsp config
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("mason").setup()
+require("mason").setup({
+	ensure_installed = {
+		"vim-language-server",
+		"stylua",
+		"lua-language-server",
+		"ruff-lsp",
+		"shfmt",
+		"taplo",
+		"clang-format",
+	},
+})
 require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers({
 	function(server_name) -- default handler

@@ -44,7 +44,7 @@ vim.cmd.colorscheme("catppuccin")
 -- line down
 require("lualine").setup({
 	options = {
-		disabled_filetypes = { "NvimTree" },
+		globalstatus = true,
 		theme = "catppuccin",
 	},
 })
@@ -56,8 +56,8 @@ require("bufferline").setup({
 		diagnostics = "nvim_lsp",
 		offsets = {
 			{
-				filetype = "NvimTree",
-				text = "File Explorer",
+				filetype = "neo-tree",
+				text = "Neo-tree",
 				highlight = "Directory",
 				text_align = "left",
 			},
