@@ -14,7 +14,7 @@ require("catppuccin").setup({
 		leap = true,
 		cmp = true,
 		mason = true,
-		nvimtree = true,
+		neotree = true,
 		treesitter = true,
 		treesitter_context = true,
 		notify = true,
@@ -66,7 +66,19 @@ require("bufferline").setup({
 })
 
 -- file explorer
-require("nvim-tree").setup()
+require("neo-tree").setup({
+	open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+	close_if_last_window = true,
+	filesystem = {
+		group_empty_dirs = true,
+		follow_current_file = { enabled = true },
+		use_libuv_file_watcher = true,
+	},
+	window = {
+		width = 30,
+	},
+	sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+})
 
 require("colorizer").setup()
 

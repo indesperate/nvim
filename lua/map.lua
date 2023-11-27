@@ -14,8 +14,6 @@ map("n", "<c-l>", "<c-w><c-l>", opt)
 map("v", "K", "k", opt)
 
 -- plugins
-map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>", opt)
-
 require("telescope").load_extension("fzf")
 local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files, opt)
@@ -24,6 +22,18 @@ map("n", "<leader>fb", builtin.buffers, opt)
 map("n", "<leader>fh", builtin.help_tags, opt)
 map("n", "<leader>fc", builtin.command_history, opt)
 map("n", "<leader>fz", builtin.current_buffer_fuzzy_find, opt)
+
+-- neotree
+local neotree = function(opts)
+	return function()
+		require("neo-tree.command").execute(opts)
+	end
+end
+
+map("n", "<leader>nf", neotree({ toggle = true }), opt)
+map("n", "<leader>ng", neotree({ source = "git_status", toggle = true }), opt)
+map("n", "<leader>nb", neotree({ source = "buffers", toggle = true }), opt)
+map("n", "<leader>nd", neotree({ source = "document_symbols", toggle = true }), opt)
 
 -- lsp map
 map("n", "gr", builtin.lsp_references, opt)

@@ -27,7 +27,6 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	"nvim-tree/nvim-tree.lua",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	"hrsh7th/cmp-nvim-lsp",
@@ -43,6 +42,16 @@ local plugins = {
 	"kylechui/nvim-surround",
 	"norcalli/nvim-colorizer.lua",
 	"christoomey/vim-tmux-navigator",
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+		cmd = "Neotree",
+	},
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
