@@ -15,12 +15,19 @@ local plugins = {
   "williamboman/mason.nvim",
   "neovim/nvim-lspconfig",
   'williamboman/mason-lspconfig.nvim',
-  { 'catppuccin/nvim',                 name = 'catppuccin' },
+  { 'catppuccin/nvim',                 name = 'catppuccin', priority = 1000 },
   'nvim-tree/nvim-web-devicons',
   'nvim-lualine/lualine.nvim',
   'akinsho/bufferline.nvim',
-  'nvim-lua/plenary.nvim',
-  'nvim-telescope/telescope.nvim',
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build =
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
   'nvim-tree/nvim-tree.lua',
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   'nvim-treesitter/nvim-treesitter-textobjects',

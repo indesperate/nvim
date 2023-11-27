@@ -16,6 +16,7 @@ map('v', 'K', 'k', opt)
 -- plugins
 map('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', opt)
 
+require('telescope').load_extension('fzf')
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files, opt)
 map('n', '<leader>fg', builtin.live_grep, opt)

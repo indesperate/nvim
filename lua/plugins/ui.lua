@@ -1,22 +1,53 @@
 -- theme
 require('catppuccin').setup {
+    flavour = "mocha",
+    transparent_background = false,
+    dim_inactive = {
+        enabled = true, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.10, -- percentage of the shade to apply to the inactive window
+    },
     integrations = {
+        telescope = {
+            enabled = true,
+        },
+        leap = true,
+        cmp = true,
         mason = true,
-        telescope = true,
         nvimtree = true,
-        treesitter = true
+        treesitter = true,
+        treesitter_context = true,
+        notify = true,
+        lsp_trouble = true
     },
     native_lsp = {
         enabled = true,
+        virtual_text = {
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
+        },
+        underlines = {
+            errors = { "underline" },
+            hints = { "underline" },
+            warnings = { "underline" },
+            information = { "underline" },
+        },
+        inlay_hints = {
+            background = true,
+        },
     },
 }
 vim.cmd.colorscheme 'catppuccin'
 
+
 -- line down
 require('lualine').setup {
     options = {
+        disabled_filetypes = {"NvimTree"},
         theme = 'catppuccin'
-    }
+    },
 }
 
 -- line up
