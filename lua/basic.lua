@@ -2,7 +2,7 @@ local opt = vim.opt
 local g = vim.g
 local autocmd = vim.api.nvim_create_autocmd
 -- leader key
-g.mapleader = ' '
+g.mapleader = " "
 
 -- use nvimtree
 g.loaded_netrw = 1
@@ -28,11 +28,8 @@ opt.smartindent = true
 opt.termguicolors = true
 
 -- restore cursor when leave
-autocmd(
-    { 'VimLeave' },
-    {
-        callback = function()
-            opt.guicursor = 'a:ver25-blinkon1'
-        end
-    }
-)
+autocmd({ "VimLeave" }, {
+	callback = function()
+		opt.guicursor = "a:ver25-blinkon1"
+	end,
+})

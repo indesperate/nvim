@@ -16,4 +16,6 @@ require 'plugins.leap'
 
 require 'plugins.obj'
 
+require 'plugins.format-lint'
+
 require 'map'
