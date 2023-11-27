@@ -3,7 +3,7 @@ require('catppuccin').setup {
     flavour = "mocha",
     transparent_background = false,
     dim_inactive = {
-        enabled = true, -- dims the background color of inactive window
+        enabled = true,    -- dims the background color of inactive window
         shade = "dark",
         percentage = 0.10, -- percentage of the shade to apply to the inactive window
     },
@@ -45,7 +45,7 @@ vim.cmd.colorscheme 'catppuccin'
 -- line down
 require('lualine').setup {
     options = {
-        disabled_filetypes = {"NvimTree"},
+        disabled_filetypes = { "NvimTree" },
         theme = 'catppuccin'
     },
 }
@@ -78,8 +78,28 @@ require("noice").setup({
             ["cmp.entry.get_documentation"] = true,
         },
     },
-    messages = {
-        view = "mini"
+    routes = {
+        {
+            view = "mini",
+            filter = {
+                event = "msg_show",
+                kind = "",
+                find = "written",
+            },
+        },
+        {
+            view = "popup",
+            filter = {
+                any = {
+                    { cmdline = "^:!" },
+                    { cmdline = "^:reg" },
+                    { cmdline = "^:dis" },
+                    { cmdline = "^:ls" },
+                    { cmdline = "^:marks" },
+                    { cmdline = "^:hi" },
+                }
+            },
+        },
     },
     -- you can enable a preset for easier configuration
     presets = {
