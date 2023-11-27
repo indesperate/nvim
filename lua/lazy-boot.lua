@@ -102,6 +102,9 @@ local plugins = {
 	{
 		"stevearc/dressing.nvim",
 	},
+	{
+		"nvim-pack/nvim-spectre",
+	},
 }
 
 local opts = {}
