@@ -40,7 +40,6 @@ map("n", "gr", builtin.lsp_references, opt)
 map("n", "gd", builtin.lsp_definitions, opt)
 map("n", "<leader>D", builtin.lsp_type_definitions, opt)
 map("n", "gi", builtin.lsp_implementations, opt)
-map("n", "<leader>.", builtin.quickfix, opt)
 
 map("n", "<leader>=", require("conform").format, opt)
 

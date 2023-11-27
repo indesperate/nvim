@@ -99,6 +99,9 @@ local plugins = {
 	{
 		"lewis6991/gitsigns.nvim",
 	},
+	{
+		"stevearc/dressing.nvim",
+	},
 }
 
 local opts = {}
