@@ -1,21 +1,21 @@
-require 'basic'
+require("basic")
 
-require 'lazy-boot'
+require("lazy-boot")
 
-require 'plugins.ui'
+require("plugins.ui")
 
-require 'plugins.lsp'
+require("plugins.lsp")
 
-require 'plugins.complete'
+require("plugins.complete")
 
-require 'plugins.highlight'
+require("plugins.highlight")
 
-require 'plugins.com'
+require("plugins.default")
 
-require 'plugins.leap'
+require("plugins.obj")
 
-require 'plugins.obj'
+require("plugins.format-lint")
 
-require 'plugins.format-lint'
+require("plugins.git")
 
-require 'map'
+require("map")

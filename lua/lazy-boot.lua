@@ -96,6 +96,9 @@ local plugins = {
 		lazy = true,
 		cmd = "ConformInfo",
 	},
+	{
+		"lewis6991/gitsigns.nvim",
+	},
 }
 
 local opts = {}
