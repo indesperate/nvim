@@ -50,7 +50,9 @@ map("n", "gd", builtin.lsp_definitions, { desc = "lsp def", silent = true })
 map("n", "<leader>D", builtin.lsp_type_definitions, { desc = "lsp type def", silent = true })
 map("n", "gi", builtin.lsp_implementations, { desc = "lsp impl", silent = true })
 
-map("n", "<leader>=", require("conform").format, { desc = "format", silent = true })
+map("n", "<leader>=", function()
+	require("conform").format({ lsp_fallback = "always" })
+end, { desc = "format", silent = true })
 
 map("i", "<c-j>", vim.lsp.buf.signature_help, { desc = "lsp help", silent = true })
 map("n", "K", vim.lsp.buf.hover, { desc = "lsp hover", silent = true })
