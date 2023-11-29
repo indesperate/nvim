@@ -12,6 +12,30 @@ require("catppuccin").setup({
 		telescope = {
 			enabled = true,
 		},
+		rainbow_delimiters = true,
+		indent_blankline = {
+			enabled = true,
+			scope_color = "mocha",
+			colored_indent_levels = true,
+		},
+		native_lsp = {
+			enabled = true,
+			virtual_text = {
+				errors = { "italic" },
+				hints = { "italic" },
+				warnings = { "italic" },
+				information = { "italic" },
+			},
+			underlines = {
+				errors = { "underline" },
+				hints = { "underline" },
+				warnings = { "underline" },
+				information = { "underline" },
+			},
+			inlay_hints = {
+				background = true,
+			},
+		},
 		noice = true,
 		dashboard = true,
 		which_key = true,
@@ -143,13 +167,13 @@ local hooks = require("ibl.hooks")
 -- create the highlight groups in the highlight setup hook, so they are reset
 -- every time the colorscheme changes
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-	vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-	vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-	vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-	vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-	vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-	vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-	vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 end)
 
 vim.g.rainbow_delimiters = { highlight = highlight }
