@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- theme
 require("catppuccin").setup({
 	flavour = "mocha",

@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- complete
 local lspkind = require("lspkind")
 local luasnip = require("luasnip")
