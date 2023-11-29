@@ -11,7 +11,6 @@ require("catppuccin").setup({
 		telescope = {
 			enabled = true,
 		},
-		leap = true,
 		cmp = true,
 		mason = true,
 		neotree = true,
@@ -123,3 +122,5 @@ require("noice").setup({
 		lsp_doc_border = true, -- add a border to hover docs and signature help
 	},
 })
+
+require("which-key").setup()

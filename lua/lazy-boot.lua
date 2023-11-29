@@ -12,23 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	"williamboman/mason.nvim",
-	"neovim/nvim-lspconfig",
-	"williamboman/mason-lspconfig.nvim",
+	-- theme and ui
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
 	"akinsho/bufferline.nvim",
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	"nvim-treesitter/nvim-treesitter-textobjects",
+	-- lsp and complete
+	"williamboman/mason.nvim",
+	"neovim/nvim-lspconfig",
+	"williamboman/mason-lspconfig.nvim",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
@@ -37,11 +29,79 @@ local plugins = {
 	"L3MON4D3/LuaSnip",
 	"saadparwaiz1/cmp_luasnip",
 	"onsails/lspkind-nvim",
-	"numToStr/Comment.nvim",
-	"ggandor/leap.nvim",
-	"kylechui/nvim-surround",
-	"norcalli/nvim-colorizer.lua",
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+	-- format
+	{
+		"stevearc/conform.nvim",
+		dependencies = { "mason.nvim" },
+		lazy = true,
+		cmd = "ConformInfo",
+	},
+	-- telescope
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	-- highlight
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	"nvim-treesitter/nvim-treesitter-textobjects",
+	-- jump
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump()
+				end,
+				desc = "Flash",
+			},
+			{
+				"S",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash Treesitter",
+			},
+			{
+				"r",
+				mode = "o",
+				function()
+					require("flash").remote()
+				end,
+				desc = "Remote Flash",
+			},
+			{
+				"R",
+				mode = { "o", "x" },
+				function()
+					require("flash").treesitter_search()
+				end,
+				desc = "Treesitter Search",
+			},
+			{
+				"<c-s>",
+				mode = { "c" },
+				function()
+					require("flash").toggle()
+				end,
+				desc = "Toggle Flash Search",
+			},
+		},
+	},
 	"christoomey/vim-tmux-navigator",
+	-- neotree
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -52,10 +112,7 @@ local plugins = {
 		},
 		cmd = "Neotree",
 	},
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
+	-- float ui
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -64,6 +121,10 @@ local plugins = {
 			"rcarriga/nvim-notify",
 		},
 	},
+	{
+		"stevearc/dressing.nvim",
+	},
+	-- begin
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
@@ -90,17 +151,9 @@ local plugins = {
 		end,
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
-	{
-		"stevearc/conform.nvim",
-		dependencies = { "mason.nvim" },
-		lazy = true,
-		cmd = "ConformInfo",
-	},
+	-- utils
 	{
 		"lewis6991/gitsigns.nvim",
-	},
-	{
-		"stevearc/dressing.nvim",
 	},
 	{
 		"nvim-pack/nvim-spectre",
@@ -111,6 +164,16 @@ local plugins = {
 		init = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 500
+		end,
+	},
+	"norcalli/nvim-colorizer.lua",
+	"echasnovski/mini.pairs",
+	"echasnovski/mini.comment",
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
 		end,
 	},
 }

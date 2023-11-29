@@ -1,4 +1,3 @@
-require("nvim-surround").setup()
 require("nvim-treesitter.configs").setup({
 	textobjects = {
 		select = {
