@@ -160,9 +160,10 @@ local plugins = {
 		"kylechui/nvim-surround",
 		event = "VeryLazy",
 		config = function()
-			require("nvim-surround").setup({})
+			require("nvim-surround").setup()
 		end,
 	},
+	{ "folke/neodev.nvim", opts = {} },
 }
 
 local opts = {}
