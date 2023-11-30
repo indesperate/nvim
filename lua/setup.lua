@@ -117,9 +117,6 @@ local plugins = {
 		"stevearc/dressing.nvim",
 	},
 	{
-		"hiphish/rainbow-delimiters.nvim",
-	},
-	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 	},
