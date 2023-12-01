@@ -3,11 +3,6 @@
 require("catppuccin").setup({
 	flavour = "mocha",
 	transparent_background = true,
-	dim_inactive = {
-		enabled = true, -- dims the background color of inactive window
-		shade = "dark",
-		percentage = 0.10, -- percentage of the shade to apply to the inactive window
-	},
 	integrations = {
 		telescope = {
 			enabled = true,
@@ -166,4 +161,8 @@ require("ibl").setup({
 			"notify",
 		},
 	},
+})
+
+require("notify").setup({
+	background_colour = "#000000",
 })
