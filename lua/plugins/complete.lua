@@ -2,6 +2,7 @@
 -- complete
 local lspkind = require("lspkind")
 local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
 local cmp = require("cmp")
 local has_words_before = function()
 	unpack = unpack or table.unpack
@@ -23,16 +24,10 @@ cmp.setup({
 		{ name = "path" },
 	}),
 	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
