@@ -3,7 +3,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		c = { "clang-format" },
 		cpp = { "clang-format" },
-		sh = { "sh-fmt" },
+		sh = { "shfmt" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
