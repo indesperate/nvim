@@ -59,6 +59,8 @@ map("n", "K", vim.lsp.buf.hover, { desc = "lsp hover", silent = true })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "lsp declar", silent = true })
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = "lsp rename", silent = true })
 map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "lsp action", silent = true })
+map("n", "<leader>[", vim.diagnostic.goto_next, { desc = "diagnostic next", silent = true })
+map("n", "<leader>]", vim.diagnostic.goto_prev, { desc = "diagnostic previous", silent = true })
 
 -- useful map
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "move down", silent = true })
