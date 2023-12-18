@@ -78,6 +78,8 @@ return {
 	-- show key help
 	{
 		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {},
 	},
 	-- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 	{
