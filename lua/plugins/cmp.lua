@@ -23,21 +23,11 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
-			"onsails/lspkind.nvim",
 		},
 		config = function()
 			-- complete
-			local lspkind = require("lspkind")
 			local luasnip = require("luasnip")
-			require("luasnip.loaders.from_vscode").lazy_load()
 			local cmp = require("cmp")
-			local has_words_before = function()
-				unpack = unpack or table.unpack
-				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0
-					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-			end
-
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -58,8 +48,6 @@ return {
 							cmp.select_next_item()
 						elseif luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
-						elseif has_words_before() then
-							cmp.complete()
 						else
 							fallback()
 						end
@@ -81,16 +69,6 @@ return {
 						"s",
 					}),
 				}),
-				formatting = {
-					format = lspkind.cmp_format({
-						with_text = true,
-						maxwidth = 50,
-						before = function(entry, vim_item)
-							vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-							return vim_item
-						end,
-					}),
-				},
 			})
 
 			-- use when in search mode
