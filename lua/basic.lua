@@ -3,6 +3,8 @@ local g = vim.g
 local autocmd = vim.api.nvim_create_autocmd
 -- leader key
 g.mapleader = " "
+g.loaded_netrw = 0
+g.loaded_netrwPlugin = 0
 
 -- show number
 opt.number = true
@@ -24,7 +26,7 @@ opt.smartindent = true
 opt.termguicolors = true
 
 opt.formatoptions = "jcroqlnt" -- tcqj
-opt.showmode = false           -- Dont show mode since we have a statusline
+opt.showmode = false -- Dont show mode since we have a statusline
 opt.timeout = true
 opt.timeoutlen = 300
 
@@ -72,9 +74,6 @@ autocmd("BufReadPost", {
 		end
 	end,
 })
-
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0
 
 -- close some filetypes with <q>
 autocmd("FileType", {

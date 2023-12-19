@@ -65,13 +65,11 @@ return {
 				width = 30,
 			},
 			sources = { "filesystem", "buffers", "git_status", "document_symbols" },
-
 		},
 	},
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
-		build =
-		"cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -191,6 +189,14 @@ return {
 				-- Text object
 				map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "hunk block", silent = true })
 			end,
+		},
+	},
+	{
+		"akinsho/toggleterm.nvim",
+		opts = {
+			open_mapping = "<leader>p",
+			direction = "float",
+			shell = "pwsh",
 		},
 	},
 }
