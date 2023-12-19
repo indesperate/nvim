@@ -193,10 +193,21 @@ return {
 	},
 	{
 		"akinsho/toggleterm.nvim",
+		lazy = true,
+		cmd = "Toggleterm",
 		opts = {
 			open_mapping = "<leader>p",
 			direction = "float",
 			shell = vim.g.toggleshell,
+		},
+		keys = {
+			{
+				"<leader>p",
+				function()
+					require("toggleterm").Toggleterm()
+				end,
+				desc = "Explorer NeoTree (cwd)",
+			},
 		},
 	},
 }
