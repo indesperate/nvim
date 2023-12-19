@@ -30,6 +30,11 @@ opt.showmode = false -- Dont show mode since we have a statusline
 opt.timeout = true
 opt.timeoutlen = 300
 
+opt.list = true
+opt.listchars = "tab:  ,trail:·,extends:❯,precedes:❮"
+opt.wrap = false
+opt.showcmd = false
+
 -- restore cursor when leave
 autocmd({ "VimLeave" }, {
 	callback = function()
