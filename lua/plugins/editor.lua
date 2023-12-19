@@ -196,7 +196,7 @@ return {
 		opts = {
 			open_mapping = "<leader>p",
 			direction = "float",
-			shell = "pwsh",
+			shell = vim.g.toggleshell,
 		},
 	},
 }

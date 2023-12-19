@@ -90,3 +90,15 @@ autocmd("FileType", {
 		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
 	end,
 })
+
+if vim.fn.exists("g:os") == 0 then
+	local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+	if is_windows then
+		vim.g.os = "Windows"
+		vim.g.toggleshell = "pwsh"
+	else
+		local uname_output = vim.fn.system("uname")
+		vim.g.os = string.gsub(uname_output, "\n", "")
+		vim.g.toggleshell = "bash"
+	end
+end
