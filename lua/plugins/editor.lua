@@ -21,49 +21,57 @@ return {
 				end
 			end
 		end,
-		config = function()
-			require("neo-tree").setup({
-				open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
-				filesystem = {
-					group_empty_dirs = true,
-					follow_current_file = { enabled = true },
-					use_libuv_file_watcher = true,
-				},
-				window = {
-					width = 30,
-				},
-				sources = { "filesystem", "buffers", "git_status", "document_symbols" },
-			})
-			local neotree = function(opts)
-				return function()
-					require("neo-tree.command").execute(opts)
-				end
-			end
-			local map = vim.keymap.set
-			map("n", "<leader>nf", neotree({ toggle = true }), { desc = "Neotree filesystem", silent = true })
-			map(
-				"n",
-				"<leader>ng",
-				neotree({ source = "git_status", toggle = true }),
-				{ desc = "Neotree git status", silent = true }
-			)
-			map(
-				"n",
-				"<leader>nb",
-				neotree({ source = "buffers", toggle = true }),
-				{ desc = "Neotree buffer", silent = true }
-			)
-			map(
-				"n",
-				"<leader>nd",
-				neotree({ source = "document_symbols", toggle = true }),
-				{ desc = "Neotree symbol", silent = true }
-			)
+		keys = {
+			{
+				"<leader>ef",
+				function()
+					require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+				end,
+				desc = "Explorer NeoTree (cwd)",
+			},
+			{
+				"<leader>eg",
+				function()
+					require("neo-tree.command").execute({ source = "git_status", toggle = true })
+				end,
+				desc = "Git explorer",
+			},
+			{
+				"<leader>eb",
+				function()
+					require("neo-tree.command").execute({ source = "buffers", toggle = true })
+				end,
+				desc = "Buffer explorer",
+			},
+			{
+				"<leader>ed",
+				function()
+					require("neo-tree.command").execute({ source = "document_symbols", toggle = true })
+				end,
+				desc = "Symbols explorer",
+			},
+		},
+		deactivate = function()
+			vim.cmd([[Neotree close]])
 		end,
+		opts = {
+			open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
+			filesystem = {
+				group_empty_dirs = true,
+				follow_current_file = { enabled = true },
+				use_libuv_file_watcher = true,
+			},
+			window = {
+				width = 30,
+			},
+			sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+
+		},
 	},
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		build =
+		"cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	},
 	{
 		"nvim-telescope/telescope.nvim",
