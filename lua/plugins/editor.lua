@@ -24,28 +24,28 @@ return {
 		end,
 		keys = {
 			{
-				"<leader>ef",
+				"<leader>nf",
 				function()
 					require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
 				end,
 				desc = "Explorer NeoTree (cwd)",
 			},
 			{
-				"<leader>eg",
+				"<leader>ng",
 				function()
 					require("neo-tree.command").execute({ source = "git_status", toggle = true })
 				end,
 				desc = "Git explorer",
 			},
 			{
-				"<leader>eb",
+				"<leader>nb",
 				function()
 					require("neo-tree.command").execute({ source = "buffers", toggle = true })
 				end,
 				desc = "Buffer explorer",
 			},
 			{
-				"<leader>ed",
+				"<leader>nd",
 				function()
 					require("neo-tree.command").execute({ source = "document_symbols", toggle = true })
 				end,
