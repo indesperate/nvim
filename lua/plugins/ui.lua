@@ -66,6 +66,7 @@ return {
 					"dashboard",
 					"neo-tree",
 					"trouble",
+					"Trouble",
 					"lazy",
 					"mason",
 					"notify",
@@ -88,7 +89,12 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
+			{
+				"rcarriga/nvim-notify",
+				opts = {
+					background_colour = "#000000",
+				},
+			},
 		},
 		opts = {
 			lsp = {
@@ -167,11 +173,5 @@ return {
 			})
 		end,
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	},
-	{
-		"rcarriga/nvim-notify",
-		opts = {
-			background_colour = "#000000",
-		},
 	},
 }

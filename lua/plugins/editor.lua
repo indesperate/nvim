@@ -2,6 +2,7 @@ return {
 
 	{
 		"folke/trouble.nvim",
+		cmd = "Trouble",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
@@ -206,7 +207,7 @@ return {
 				function()
 					require("toggleterm").Toggleterm()
 				end,
-				desc = "Explorer NeoTree (cwd)",
+				desc = "Open float terminal",
 			},
 		},
 	},
