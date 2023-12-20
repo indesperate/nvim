@@ -96,6 +96,13 @@ autocmd("FileType", {
 	end,
 })
 
+autocmd("CmdwinEnter", {
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = event.buf, silent = true })
+	end,
+})
+
 if vim.fn.exists("g:os") == 0 then
 	local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
 	if is_windows then
