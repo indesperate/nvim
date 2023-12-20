@@ -13,7 +13,6 @@ map("n", "<c-l>", "<c-w><c-l>", { desc = "Right window", silent = true })
 map("v", "K", "k", { desc = "Don't check", silent = true })
 
 -- lsp map
-
 map("i", "<c-j>", vim.lsp.buf.signature_help, { desc = "Lsp help", silent = true })
 map("n", "K", vim.lsp.buf.hover, { desc = "Lsp hover", silent = true })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Lsp declar", silent = true })
@@ -24,6 +23,14 @@ map("n", "<leader>]", vim.diagnostic.goto_prev, { desc = "Diagnostic previous", 
 map("n", "gr", vim.lsp.buf.references, { desc = "Lsp refer", silent = true })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Lsp def", silent = true })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Lsp impl", silent = true })
+
+-- terminal mappings
+map("t", "<c-n>", "<c-\\><c-n>", { desc = "Terminal escape", silent = true })
+map("t", "<c-h>", "<c-\\><c-n><c-w>h", { desc = "Terminal left", silent = true })
+map("t", "<c-j>", "<c-\\><c-n><c-w>j", { desc = "Terminal down", silent = true })
+map("t", "<c-k>", "<c-\\><c-n><c-w>k", { desc = "Terminal up", silent = true })
+map("t", "<c-l>", "<c-\\><c-n><c-w>l", { desc = "Terminal right", silent = true })
+map("t", "<c-w>", "<c-\\><c-n><c-w>", { desc = "Terminal window", silent = true })
 
 -- useful map
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "move down", silent = true })

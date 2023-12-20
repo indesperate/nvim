@@ -219,18 +219,21 @@ return {
 		lazy = true,
 		cmd = "Toggleterm",
 		opts = {
-			open_mapping = "<leader>p",
 			direction = "float",
 			shell = vim.g.toggleshell,
 		},
 		keys = {
 			{
 				"<leader>p",
-				function()
-					require("toggleterm").Toggleterm()
-				end,
+				"<cmd>ToggleTerm<cr>",
 				desc = "Open float terminal",
 			},
 		},
+	},
+	{
+		"nvim-pack/nvim-spectre",
+		lazy = true,
+		cmd = "Spectre",
+		opts = { open_cmd = "noswapfile vnew" },
 	},
 }

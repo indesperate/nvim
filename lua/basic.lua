@@ -89,6 +89,7 @@ autocmd("FileType", {
 		"query",
 		"spectre_panel",
 		"checkhealth",
+		"toggleterm",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
