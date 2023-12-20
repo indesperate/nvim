@@ -1,7 +1,7 @@
 return {
 	{
 		"norcalli/nvim-colorizer.lua",
-		event = "BufRead",
+		event = { "BufRead", "BufNewFile" },
 		config = function()
 			require("colorizer").setup()
 		end,
@@ -15,14 +15,14 @@ return {
 	},
 	{
 		"echasnovski/mini.comment",
-		event = "BufRead",
+		event = { "BufRead", "BufNewFile" },
 		config = function()
 			require("mini.comment").setup()
 		end,
 	},
 	{
 		"kylechui/nvim-surround",
-		event = "BufRead",
+		event = { "BufRead", "BufNewFile" },
 		config = function()
 			require("nvim-surround").setup()
 		end,

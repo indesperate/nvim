@@ -9,7 +9,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		event = "BufRead",
+		event = { "BufRead", "BufNewFile" },
 		opts = {
 			handlers = {
 				function(server_name) -- default handler
