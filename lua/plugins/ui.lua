@@ -54,6 +54,7 @@ return {
 	-- indent blank
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufRead", "BufNewFile" },
 		opts = {
 			indent = {
 				char = "│",

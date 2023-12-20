@@ -70,7 +70,7 @@ return {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		event = { "VeryLazy" },
+		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -80,19 +80,37 @@ return {
 		},
 		config = function()
 			require("telescope").load_extension("fzf")
-			local builtin = require("telescope.builtin")
-			local map = vim.keymap.set
-			map("n", "<leader>ff", builtin.find_files, { desc = "Find files", silent = true })
-			map("n", "<leader>fg", builtin.live_grep, { desc = "Live grep", silent = true })
-			map("n", "<leader>fb", builtin.buffers, { desc = "Find buffers", silent = true })
-			map("n", "<leader>fh", builtin.help_tags, { desc = "Find help tags", silent = true })
-			map("n", "<leader>fc", builtin.command_history, { desc = "Find command history", silent = true })
-			map("n", "<leader>fz", builtin.current_buffer_fuzzy_find, { desc = "Find in cbuffer", silent = true })
-			map("n", "gr", builtin.lsp_references, { desc = "lsp refer", silent = true })
-			map("n", "gd", builtin.lsp_definitions, { desc = "lsp def", silent = true })
-			map("n", "<leader>D", builtin.lsp_type_definitions, { desc = "lsp type def", silent = true })
-			map("n", "gi", builtin.lsp_implementations, { desc = "lsp impl", silent = true })
 		end,
+		keys = {
+			{
+				"<leader>ff",
+				function()
+					require("telescope.builtin").find_files()
+				end,
+				desc = "Find files",
+			},
+			{
+				"<leader>fb",
+				function()
+					require("telescope.builtin").buffers()
+				end,
+				desc = "Find buffers",
+			},
+			{
+				"<leader>fg",
+				function()
+					require("telescope.builtin").live_grep()
+				end,
+				desc = "Live grep",
+			},
+			{
+				"<leader>fc",
+				function()
+					require("telescope.builtin").command_history()
+				end,
+				desc = "Seacch command history",
+			},
+		},
 	},
 	{
 		"folke/flash.nvim",
@@ -147,6 +165,7 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
+		event = { "BufRead", "BufNewFile" },
 		opts = {
 			signs = {
 				add = { text = "▎" },
