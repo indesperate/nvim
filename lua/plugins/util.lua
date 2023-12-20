@@ -1,31 +1,31 @@
 return {
 	{
 		"norcalli/nvim-colorizer.lua",
-		event = "VeryLazy",
+		event = "BufRead",
 		config = function()
 			require("colorizer").setup()
 		end,
 	},
 	{
 		"echasnovski/mini.pairs",
-		event = "VeryLazy",
+		event = "InsertEnter",
 		config = function()
 			require("mini.pairs").setup()
 		end,
 	},
 	{
 		"echasnovski/mini.comment",
-		event = "VeryLazy",
+		event = "BufRead",
 		config = function()
 			require("mini.comment").setup()
 		end,
 	},
 	{
 		"kylechui/nvim-surround",
-		event = "VeryLazy",
+		event = "BufRead",
 		config = function()
 			require("nvim-surround").setup()
 		end,
 	},
-	"christoomey/vim-tmux-navigator",
+	{ "christoomey/vim-tmux-navigator", event = "VeryLazy" },
 }

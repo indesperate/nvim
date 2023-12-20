@@ -1,14 +1,15 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 return {
-	"neovim/nvim-lspconfig",
 	{
 		"williamboman/mason.nvim",
+		cmd = "Mason",
 		config = function()
 			require("mason").setup()
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		event = "BufRead",
 		opts = {
 			handlers = {
 				function(server_name) -- default handler
@@ -36,6 +37,7 @@ return {
 		end,
 		dependencies = {
 			"folke/neoconf.nvim",
+			"neovim/nvim-lspconfig",
 		},
 	},
 }
