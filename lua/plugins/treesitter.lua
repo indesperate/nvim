@@ -15,6 +15,10 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
+		keys = {
+			{ "gn", desc = "Increment selection" },
+			{ "<bs>", desc = "Decrement selection" },
+		},
 		opts = {
 			ensure_installed = {
 				"bash",
@@ -73,12 +77,6 @@ return {
 						["ii"] = "@conditional.inner",
 						["al"] = "@loop.outer",
 						["il"] = "@loop.inner",
-					},
-					selection_modes = {
-						["@function.outer"] = "V",
-						["@class.outer"] = "V",
-						["@conditional.outer"] = "V",
-						["@loop.outer"] = "V",
 					},
 				},
 			},
