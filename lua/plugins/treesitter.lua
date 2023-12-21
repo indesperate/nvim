@@ -67,16 +67,28 @@ return {
 					enable = true,
 					lookahead = true,
 					keymaps = {
-						["aa"] = "@parameter.outer",
-						["ia"] = "@parameter.inner",
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						["ic"] = "@class.inner",
-						["ai"] = "@conditional.outer",
-						["ii"] = "@conditional.inner",
-						["al"] = "@loop.outer",
-						["il"] = "@loop.inner",
+						["a="] = { query = "@assignment.outer", desc = "Select assignment outer" },
+						["i="] = { query = "@assignment.inner", desc = "Select assignment inner" },
+						["l="] = { query = "@assignment.lhs", desc = "Select assignment left hand side" },
+						["r="] = { query = "@assignment.rhs", desc = "Select assignment right hand side" },
+
+						["aa"] = { query = "@parameter.outer", desc = "Select parameter outer" },
+						["ia"] = { query = "@parameter.inner", desc = "Select parameter inner" },
+
+						["ai"] = { query = "@conditional.outer", desc = "Select conditional outer" },
+						["ii"] = { query = "@conditional.inner", desc = "Select conditional inner" },
+
+						["al"] = { query = "@loop.outer", desc = "Select loop outer" },
+						["il"] = { query = "@loop.inner", desc = "Select loop inner" },
+
+						["af"] = { query = "@call.outer", desc = "Select function call outer" },
+						["if"] = { query = "@call.inner", desc = "Select function call inner" },
+
+						["am"] = { query = "@function.outer", desc = "Select method impl outer" },
+						["im"] = { query = "@function.inner", desc = "Select method impl inner" },
+
+						["ac"] = { query = "@class.outer", desc = "Select class outer" },
+						["ic"] = { query = "@class.inner", desc = "Select class inner" },
 					},
 				},
 			},
