@@ -185,9 +185,9 @@ return {
 				end
 
 				-- Navigation
-				map("n", "]h", gs.next_hunk, { desc = "git next hunk", silent = true })
+				map("n", "]c", gs.next_hunk, { desc = "Next git change", silent = true })
 
-				map("n", "[h", gs.prev_hunk, { desc = "git prev hunk", silent = true })
+				map("n", "[c", gs.prev_hunk, { desc = "Previoud git change", silent = true })
 
 				-- Actions
 				map("n", "<leader>hs", gs.stage_hunk, { desc = "git stage hunk", silent = true })
