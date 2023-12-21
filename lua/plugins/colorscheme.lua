@@ -2,7 +2,7 @@ return {
 	"catppuccin/nvim",
 	name = "catppuccin",
 	priority = 1000,
-	Lazy = true,
+	lazy = true,
 	opts = {
 		flavour = "mocha",
 		transparent_background = true,
