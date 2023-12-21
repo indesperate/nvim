@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		event = { "BufRead", "BufNewFile" },
+		event = { "BufReadPre", "BufNewFile" },
 		init = function(plugin)
 			-- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
 			-- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
@@ -48,6 +48,15 @@ return {
 			},
 			indent = {
 				enable = true,
+			},
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "gn",
+					node_incremental = "gn",
+					scope_incremental = false,
+					node_decremental = "<bs>",
+				},
 			},
 			textobjects = {
 				select = {
