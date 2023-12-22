@@ -19,7 +19,6 @@ return {
 	-- upper bufferline
 	{
 		"akinsho/bufferline.nvim",
-		event = "VeryLazy",
 		opts = {
 			highlights = require("catppuccin.groups.integrations.bufferline").get({
 				custom = {
@@ -56,7 +55,6 @@ return {
 	-- under status line
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
 		opts = {
 			options = {
 				globalstatus = true,
