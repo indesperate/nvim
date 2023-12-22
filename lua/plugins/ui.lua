@@ -21,9 +21,27 @@ return {
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
 		opts = {
-			highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			highlights = require("catppuccin.groups.integrations.bufferline").get({
+				custom = {
+					all = {
+						fill = { bg = "#000000" },
+						background = {
+							bg = "#000000",
+						},
+						separator = {
+							bg = "#000000",
+						},
+					},
+				},
+			}),
 			options = {
+				right_mouse_command = "BufferLineTogglePin",
 				diagnostics = "nvim_lsp",
+				hover = {
+					enabled = true,
+					delay = 200,
+					reveal = { "close" },
+				},
 				offsets = {
 					{
 						filetype = "neo-tree",

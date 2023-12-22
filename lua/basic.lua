@@ -40,6 +40,9 @@ opt.showcmd = true -- show command in bottom bar, fix <bs> not quit cmdline pop 
 opt.scrolloff = 5 -- match with treesitter text-objects padding
 opt.sidescrolloff = 8
 
+-- mouse
+opt.mousemoveevent = true
+
 -- restore cursor when leave
 autocmd({ "VimLeave" }, {
 	callback = function()

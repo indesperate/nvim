@@ -1,11 +1,11 @@
 local map = vim.keymap.set
 
 -- useful map
-map("n", "<leader>j", "<cmd>bnext<cr>", { desc = "Buffer next", silent = true })
-map("n", "<leader>k", "<cmd>bprevious<cr>", { desc = "Buffer next", silent = true })
+map("n", "<leader>j", "<cmd>bprevious<cr>", { desc = "Buffer previous", silent = true })
+map("n", "<leader>k", "<cmd>bnext<cr>", { desc = "Buffer next", silent = true })
 map("n", "<leader>l", "<cmd>luafile %<cr>", { desc = "Load lua file", silent = true })
 map("n", "<leader>w", "<cmd>w!<cr>", { desc = "Write buffer", silent = true })
-map("n", "<leader>q", "<cmd>q!<cr>", { desc = "Quit", silent = true })
+map("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit buffer", silent = true })
 map("n", "<c-h>", "<c-w><c-h>", { desc = "Left window", silent = true })
 map("n", "<c-j>", "<c-w><c-j>", { desc = "Down window", silent = true })
 map("n", "<c-k>", "<c-w><c-k>", { desc = "Up window", silent = true })
