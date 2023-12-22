@@ -52,22 +52,18 @@ return {
 				},
 			},
 		},
-		config = function(_, opts)
-			require("bufferline").setup(opts)
-		end,
 	},
 	-- under status line
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
-		config = function()
-			require("lualine").setup({
-				options = {
-					globalstatus = true,
-					theme = "catppuccin",
-				},
-			})
-		end,
+		opts = {
+			options = {
+				globalstatus = true,
+				theme = "catppuccin",
+				disabled_filetypes = { statusline = { "dashboard" } },
+			},
+		},
 	},
 	-- indent blank
 	{
