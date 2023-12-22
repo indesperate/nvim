@@ -63,7 +63,13 @@ return {
 				use_libuv_file_watcher = true,
 			},
 			window = {
-				width = 30,
+				width = 40,
+				mappings = {
+					["<space>"] = {
+						"toggle_node",
+						nowait = true,
+					},
+				},
 			},
 			sources = { "filesystem", "buffers", "git_status", "document_symbols" },
 		},
@@ -110,6 +116,13 @@ return {
 					require("telescope.builtin").command_history()
 				end,
 				desc = "Seacch command history",
+			},
+			{
+				"<leader>fs",
+				function()
+					require("telescope.builtin").lsp_document_symbols()
+				end,
+				desc = "Seacch buffer symbols",
 			},
 		},
 	},
