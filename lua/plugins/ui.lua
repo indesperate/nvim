@@ -187,4 +187,12 @@ return {
 		end,
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
+	{
+		"Bekaboo/dropbar.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		-- optional, but required for fuzzy finder support
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+		},
+	},
 }

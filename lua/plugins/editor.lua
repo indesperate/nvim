@@ -63,7 +63,7 @@ return {
 				use_libuv_file_watcher = true,
 			},
 			window = {
-				width = 40,
+				width = 30,
 				mappings = {
 					["<space>"] = {
 						"toggle_node",

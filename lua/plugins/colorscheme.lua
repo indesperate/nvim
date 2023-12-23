@@ -7,17 +7,31 @@ return {
 		flavour = "mocha",
 		transparent_background = true,
 		integrations = {
-			telescope = true,
-			semantic_tokens = true,
-			native_lsp = {
+			telescope = {
 				enabled = true,
-				underlines = {
-					errors = { "undercurl" },
-					hints = { "undercurl" },
-					warnings = { "undercurl" },
-					information = { "undercurl" },
-				},
+				style = "nvchad",
 			},
+			semantic_tokens = true,
+			virtual_text = {
+				errors = { "italic" },
+				hints = { "italic" },
+				warnings = { "italic" },
+				information = { "italic" },
+			},
+			underlines = {
+				errors = { "underline" },
+				hints = { "undercurl" },
+				warnings = { "undercurl" },
+				information = { "undercurl" },
+			},
+			inlay_hints = {
+				background = true,
+			},
+			dropbar = {
+				enabled = true,
+				color_mode = true,
+			},
+			markdown = true,
 			noice = true,
 			dashboard = true,
 			which_key = true,
