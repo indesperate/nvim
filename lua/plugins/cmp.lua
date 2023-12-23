@@ -91,4 +91,28 @@ return {
 			})
 		end,
 	},
+	{
+		"zbirenbaum/copilot.lua",
+		lazy = true,
+		cmd = "Copilot",
+		opts = {
+			panel = { enabled = false },
+			suggestion = {
+				enabled = true,
+				auto_trigger = true,
+				keymap = {
+					accept = "<c-j>",
+					next = "<M-]>",
+					prev = "<M-[>",
+				},
+			},
+			filetypes = {
+				lua = true,
+				c = true,
+				cpp = true,
+				markdown = true,
+				["*"] = false,
+			},
+		},
+	},
 }

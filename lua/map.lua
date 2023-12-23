@@ -13,7 +13,7 @@ map("n", "<c-l>", "<c-w><c-l>", { desc = "Right window", silent = true })
 map("v", "K", "k", { desc = "Don't check", silent = true })
 
 -- lsp map
-map("i", "<c-j>", vim.lsp.buf.signature_help, { desc = "Lsp help", silent = true })
+map("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Lsp help", silent = true })
 map("n", "K", vim.lsp.buf.hover, { desc = "Lsp hover", silent = true })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Lsp declar", silent = true })
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Lsp rename", silent = true })
@@ -37,7 +37,6 @@ map("v", "J", ":m '>+1<cr>gv=gv", { desc = "move down", silent = true })
 map("v", "K", ":m '<-2<cr>gv=gv", { desc = "move up", silent = true })
 
 if os.getenv("TMUX") then
-	vim.g.tmux_navigator_no_mappings = 1
 	map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })
 	map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })
 	map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true })

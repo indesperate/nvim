@@ -5,6 +5,7 @@ local autocmd = vim.api.nvim_create_autocmd
 g.mapleader = " "
 g.loaded_netrw = 0
 g.loaded_netrwPlugin = 0
+g.tmux_navigator_no_mappings = 1
 
 -- show number
 opt.number = true
