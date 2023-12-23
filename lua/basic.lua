@@ -40,6 +40,7 @@ opt.showcmd = true -- show command in bottom bar, fix <bs> not quit cmdline pop 
 -- scroll config
 opt.scrolloff = 5 -- match with treesitter text-objects padding
 opt.sidescrolloff = 8
+opt.smoothscroll = true
 
 -- mouse
 opt.mousemoveevent = true
