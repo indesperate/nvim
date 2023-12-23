@@ -195,4 +195,9 @@ return {
 			"nvim-telescope/telescope-fzf-native.nvim",
 		},
 	},
+	{
+		"folke/zen-mode.nvim",
+		lazy = true,
+		cmd = "ZenMode",
+	},
 }
