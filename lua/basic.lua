@@ -41,6 +41,11 @@ opt.showcmd = true -- show command in bottom bar, fix <bs> not quit cmdline pop 
 opt.scrolloff = 5 -- match with treesitter text-objects padding
 opt.sidescrolloff = 8
 opt.smoothscroll = true
+opt.guicursor = {
+	"n-v-c:block-Cursor/lCursor-blinkwait500-blinkon100-blinkoff100",
+	"i-ci:ver25-Cursor/lCursor-blinkwait500-blinkon100-blinkoff100",
+	"r:hor50-Cursor/lCursor-blinkwait500-blinkon100-blinkoff100",
+}
 
 -- mouse
 opt.mousemoveevent = true
@@ -48,7 +53,7 @@ opt.mousemoveevent = true
 -- restore cursor when leave
 autocmd({ "VimLeave" }, {
 	callback = function()
-		opt.guicursor = "a:ver25-blinkon1"
+		opt.guicursor = "a:ver25-Cursor/lCursor-blinkwait500-blinkon100-blinkoff100"
 	end,
 })
 
