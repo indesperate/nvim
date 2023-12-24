@@ -50,8 +50,14 @@ opt.guicursor = {
 -- mouse
 opt.mousemoveevent = true
 
+-- autocmds
+local function augroup(name)
+	return vim.api.nvim_create_augroup("Lazy_" .. name, { clear = true })
+end
+
 -- restore cursor when leave
 autocmd({ "VimLeave" }, {
+	group = augroup("resotre_cursor"),
 	callback = function()
 		opt.guicursor = "a:ver25-Cursor/lCursor-blinkwait500-blinkon100-blinkoff100"
 	end,
@@ -59,11 +65,13 @@ autocmd({ "VimLeave" }, {
 
 -- Check if we need to reload the file when it changed
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+	group = augroup("checktime"),
 	command = "checktime",
 })
 
 -- Highlight on yank
 autocmd("TextYankPost", {
+	group = augroup("highlight_on_yank"),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
@@ -71,6 +79,7 @@ autocmd("TextYankPost", {
 
 -- resize splits if window got resized
 autocmd({ "VimResized" }, {
+	group = augroup("resize_splits"),
 	callback = function()
 		local current_tab = vim.fn.tabpagenr()
 		vim.cmd("tabdo wincmd =")
@@ -80,6 +89,7 @@ autocmd({ "VimResized" }, {
 
 -- go to last loc when opening a buffer
 autocmd("BufReadPost", {
+	group = augroup("go_to_last_loc"),
 	callback = function(event)
 		local exclude = { "gitcommit" }
 		local buf = event.buf
@@ -97,6 +107,7 @@ autocmd("BufReadPost", {
 
 -- close some filetypes with <q>
 autocmd("FileType", {
+	group = augroup("close_filetypes"),
 	pattern = {
 		"help",
 		"man",
@@ -114,12 +125,14 @@ autocmd("FileType", {
 })
 
 autocmd("CmdwinEnter", {
+	group = augroup("close_cmdwin"),
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
 		vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = event.buf, silent = true })
 	end,
 })
 
+-- check os type, set shell
 if vim.fn.exists("g:os") == 0 then
 	local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
 	if is_windows then
@@ -132,7 +145,9 @@ if vim.fn.exists("g:os") == 0 then
 	end
 end
 
-vim.api.nvim_create_autocmd("LspAttach", {
+-- enable lsp inlay hints when available
+autocmd("LspAttach", {
+	group = augroup("lsp_inlay_hints"),
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client.server_capabilities.inlayHintProvider then
