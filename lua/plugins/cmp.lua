@@ -1,3 +1,31 @@
+local cmp_max_len = 20
+local kind_icons = {
+	Text = "",
+	Method = "󰆧",
+	Function = "󰊕",
+	Constructor = "",
+	Field = "󰇽",
+	Variable = "󰂡",
+	Class = "󰠱",
+	Interface = "",
+	Module = "",
+	Property = "󰜢",
+	Unit = "",
+	Value = "󰎠",
+	Enum = "",
+	Keyword = "󰌋",
+	Snippet = "",
+	Color = "󰏘",
+	File = "󰈙",
+	Reference = "",
+	Folder = "󰉋",
+	EnumMember = "",
+	Constant = "󰏿",
+	Struct = "",
+	Event = "",
+	Operator = "󰆕",
+	TypeParameter = "󰅲",
+}
 return {
 	-- lua snip
 	{
@@ -70,6 +98,21 @@ return {
 						"s",
 					}),
 				}),
+				formatting = {
+					fields = { "kind", "abbr", "menu" },
+					format = function(_, vim_item)
+						vim_item.kind = kind_icons[vim_item.kind] or ""
+						if string.len(vim_item.abbr) > cmp_max_len then
+							local label = vim_item.abbr
+							local truncated_label = vim.fn.strcharpart(label, 0, cmp_max_len)
+							if truncated_label ~= label then
+								vim_item.abbr = truncated_label .. "..."
+							end
+						end
+						vim_item.menu = ""
+						return vim_item
+					end,
+				},
 			})
 
 			-- use when in search mode
