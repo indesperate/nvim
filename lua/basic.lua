@@ -49,6 +49,8 @@ opt.guicursor = {
 
 -- mouse
 opt.mousemoveevent = true
+-- confirm to save changes when leave
+opt.confirm = true
 
 -- autocmds
 local function augroup(name)
