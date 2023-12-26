@@ -65,7 +65,8 @@ return {
 			window = {
 				width = 30,
 				mappings = {
-					["<space>"] = {
+					["<space>"] = false,
+					["n"] = {
 						"toggle_node",
 						nowait = true,
 					},
