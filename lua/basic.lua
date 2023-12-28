@@ -52,6 +52,11 @@ opt.mousemoveevent = true
 -- confirm to save changes when leave
 opt.confirm = true
 
+if vim.fn.executable("rg") then
+	opt.grepformat = "%f:%l:%c:%m"
+	opt.grepprg = "rg --vimgrep --smart-case"
+end
+
 -- autocmds
 local function augroup(name)
 	return vim.api.nvim_create_augroup("Lazy_" .. name, { clear = true })
