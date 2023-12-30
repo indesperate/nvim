@@ -40,4 +40,9 @@ return {
 			"neovim/nvim-lspconfig",
 		},
 	},
+	{
+		"folke/neoconf.nvim",
+		cmd = "Neoconf",
+		opts = {},
+	},
 }
