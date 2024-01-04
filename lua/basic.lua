@@ -62,6 +62,22 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup("Lazy_" .. name, { clear = true })
 end
 
+-- osc52 for ssh yank support
+if os.getenv("SSH_TTY") then
+	vim.g.clipboard = {
+		name = "OSC 52",
+		copy = {
+			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+    -- windows terminal doesn't support paste now, just use a dummy function
+		paste = {
+			["+"] = function() end,
+			["*"] = function() end,
+		},
+	}
+end
+
 -- restore cursor when leave
 autocmd({ "VimLeave" }, {
 	group = augroup("resotre_cursor"),
