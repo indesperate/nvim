@@ -52,6 +52,18 @@ opt.mousemoveevent = true
 -- confirm to save changes when leave
 opt.confirm = true
 
+-- fold method
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false
+
+-- don't show some messages
+opt.shortmess:append({ I = true, c = true, C = true })
+
+-- Allow cursor to move where there is no text in visual block mode
+opt.virtualedit = "block"
+
+-- set vim grep
 if vim.fn.executable("rg") then
 	opt.grepformat = "%f:%l:%c:%m"
 	opt.grepprg = "rg --vimgrep --smart-case"
@@ -70,7 +82,7 @@ if os.getenv("SSH_TTY") then
 			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
 			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
 		},
-    -- windows terminal doesn't support paste now, just use a dummy function
+		-- windows terminal doesn't support paste now, just use a dummy function
 		paste = {
 			["+"] = function() end,
 			["*"] = function() end,
