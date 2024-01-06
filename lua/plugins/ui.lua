@@ -75,6 +75,8 @@ return {
 			scope = { enabled = false },
 			exclude = {
 				filetypes = {
+					"OverseerList",
+					"OverseerForm",
 					"help",
 					"dashboard",
 					"neo-tree",

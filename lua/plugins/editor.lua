@@ -56,7 +56,7 @@ return {
 			vim.cmd([[Neotree close]])
 		end,
 		opts = {
-			open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
+			open_files_do_not_replace_types = { "terminal", "trouble", "qf", "OverseerList", "OverseerForm" },
 			filesystem = {
 				group_empty_dirs = true,
 				follow_current_file = { enabled = true },
