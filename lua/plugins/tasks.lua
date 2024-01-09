@@ -7,6 +7,7 @@ return {
 			"nvim-telescope/telescope.nvim",
 			"rcarriga/nvim-notify",
 		},
+		opts = {},
 		keys = {
 			{
 				"<leader>t",
