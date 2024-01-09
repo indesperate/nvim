@@ -29,10 +29,10 @@ map("n", "gd", vim.lsp.buf.definition, { desc = "Lsp def", silent = true })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Lsp impl", silent = true })
 
 -- tab manipulate
-map("n", "<c-n>c", "<cmd>tabnew<cr>", { desc = "New tab", silent = true})
-map("n", "<c-n>n", "<cmd>tabnext<cr>", { desc = "Next tab", silent = true})
-map("n", "<c-n>p", "<cmd>tabprevious<cr>", { desc = "Previous tab", silent = true})
-map("n", "<c-n>x", "<cmd>tabclose<cr>", { desc = "Close tab", silent = true})
+map("n", "<c-n>c", "<cmd>tabnew<cr>", { desc = "New tab", silent = true })
+map("n", "<c-n>n", "<cmd>tabnext<cr>", { desc = "Next tab", silent = true })
+map("n", "<c-n>p", "<cmd>tabprevious<cr>", { desc = "Previous tab", silent = true })
+map("n", "<c-n>x", "<cmd>tabclose<cr>", { desc = "Close tab", silent = true })
 
 -- terminal mappings
 map("t", "<c-n>", "<c-\\><c-n>", { desc = "Terminal escape", silent = true })
@@ -45,6 +45,15 @@ map("t", "<c-w>", "<c-\\><c-n><c-w>", { desc = "Terminal window", silent = true 
 -- useful map
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "move down", silent = true })
 map("v", "K", ":m '<-2<cr>gv=gv", { desc = "move up", silent = true })
+
+-- better indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+-- undo break-points, break undo history to pieces
+map("i", ",", ",<c-g>u")
+map("i", ".", ".<c-g>u")
+map("i", ";", ";<c-g>u")
 
 if os.getenv("TMUX") then
 	map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })

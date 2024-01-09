@@ -63,6 +63,9 @@ opt.shortmess:append({ I = true, c = true, C = true })
 -- Allow cursor to move where there is no text in visual block mode
 opt.virtualedit = "block"
 
+-- undo history
+opt.undolevels = 10000
+
 -- set vim grep
 if vim.fn.executable("rg") then
 	opt.grepformat = "%f:%l:%c:%m"
