@@ -29,13 +29,13 @@ map("n", "gd", vim.lsp.buf.definition, { desc = "Lsp def", silent = true })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Lsp impl", silent = true })
 
 -- tab manipulate
-map("n", "<c-n>c", "<cmd>tabnew<cr>", { desc = "New tab", silent = true })
-map("n", "<c-n>n", "<cmd>tabnext<cr>", { desc = "Next tab", silent = true })
-map("n", "<c-n>p", "<cmd>tabprevious<cr>", { desc = "Previous tab", silent = true })
-map("n", "<c-n>x", "<cmd>tabclose<cr>", { desc = "Close tab", silent = true })
+map("n", "<c-b>c", "<cmd>tabnew<cr>", { desc = "New tab", silent = true })
+map("n", "<c-b>n", "<cmd>tabnext<cr>", { desc = "Next tab", silent = true })
+map("n", "<c-b>p", "<cmd>tabprevious<cr>", { desc = "Previous tab", silent = true })
+map("n", "<c-b>x", "<cmd>tabclose<cr>", { desc = "Close tab", silent = true })
 
 -- terminal mappings
-map("t", "<c-n>", "<c-\\><c-n>", { desc = "Terminal escape", silent = true })
+map("t", "<c-b>", "<c-\\><c-n>", { desc = "Terminal escape", silent = true })
 map("t", "<c-h>", "<c-\\><c-n><c-w>h", { desc = "Terminal left", silent = true })
 map("t", "<c-j>", "<c-\\><c-n><c-w>j", { desc = "Terminal down", silent = true })
 map("t", "<c-k>", "<c-\\><c-n><c-w>k", { desc = "Terminal up", silent = true })
