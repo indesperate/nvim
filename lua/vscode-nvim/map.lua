@@ -78,3 +78,7 @@ end, { silent = true })
 map("v", "K", function()
 	vscode.call("editor.action.moveLinesUpAction")
 end, { silent = true })
+
+map("n", "<leader>n", function()
+	vscode.call("workbench.view.explorer")
+end, { silent = true })
