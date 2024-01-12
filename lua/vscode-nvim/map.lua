@@ -88,3 +88,5 @@ end, { silent = true })
 map("n", "<leader>n", function()
 	vscode.call("workbench.view.explorer")
 end, { silent = true })
+
+map("v", ".", ":norm.<cr>", { silent = true })

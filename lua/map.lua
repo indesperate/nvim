@@ -50,6 +50,9 @@ map("v", "K", ":m '<-2<cr>gv=gv", { desc = "move up", silent = true })
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
+-- visual normal
+map("v", ".", ":norm.<cr>", { desc = "Visual normal" })
+
 -- undo break-points, break undo history to pieces
 map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
