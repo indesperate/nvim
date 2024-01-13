@@ -1,6 +1,7 @@
 local vscode = require("vscode-neovim")
 
 local map = vim.keymap.set
+map("n", " ", "<Nop>", { silent = true, remap = false })
 map("n", "<c-h>", function()
 	vscode.call("workbench.action.focusLeftGroup")
 end, { silent = true })
