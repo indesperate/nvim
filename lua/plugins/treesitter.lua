@@ -107,8 +107,8 @@ return {
 						["ac"] = { query = "@class.outer", desc = "Select class outer" },
 						["ic"] = { query = "@class.inner", desc = "Select class inner" },
 
-						["is"] = { query = "@scopename.inner", desc = "Select scopename inner" },
-						["as"] = { query = "@statement.outer", desc = "Select statement outer" },
+						["is"] = { query = "@statement.outer", desc = "Select statement outer" },
+						["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
 					},
 				},
 				swap = {
@@ -119,9 +119,9 @@ return {
 						["<leader>ss"] = { query = "@statement.outer", desc = "Swap with next statement" },
 					},
 					swap_previous = {
-						["<leader>Sa"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
-						["<leader>Sm"] = { query = "@function.outer", desc = "Swap with previous function" },
-						["<leader>Ss"] = { query = "@statement.outer", desc = "Swap with previous statement" },
+						["<leader>sA"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
+						["<leader>sM"] = { query = "@function.outer", desc = "Swap with previous function" },
+						["<leader>sS"] = { query = "@statement.outer", desc = "Swap with previous statement" },
 					},
 				},
 				move = {
