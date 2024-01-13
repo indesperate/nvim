@@ -35,7 +35,7 @@ opt.timeoutlen = 300
 opt.list = true
 opt.listchars = "tab:  ,trail:·,extends:❯,precedes:❮"
 opt.wrap = false
-opt.showcmd = true -- show command in bottom bar, fix <bs> not quit cmdline pop window
+opt.showcmdloc = 'statusline'
 
 -- scroll config
 opt.scrolloff = 5 -- match with treesitter text-objects padding

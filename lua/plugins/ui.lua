@@ -61,6 +61,25 @@ return {
 				theme = "catppuccin",
 				disabled_filetypes = { statusline = { "dashboard" } },
 			},
+			sections = {
+				lualine_a = { "mode" },
+				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_c = {
+					"filename",
+					{
+						function()
+							return require("noice").api.status.mode.get()
+						end,
+						cond = function()
+							return package.loaded["noice"] and require("noice").api.status.mode.has()
+						end,
+					},
+					"%S",
+				},
+				lualine_x = { "encoding", "fileformat", "filetype" },
+				lualine_y = { "progress" },
+				lualine_z = { "location" },
+			},
 		},
 	},
 	-- indent blank
@@ -94,7 +113,8 @@ return {
 	-- show key help
 	{
 		"folke/which-key.nvim",
-		event = "VeryLazy",
+		lazy = true,
+		cmd = "WhichKey",
 		opts = {},
 	},
 	-- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
