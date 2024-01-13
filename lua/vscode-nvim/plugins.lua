@@ -70,6 +70,9 @@ require("lazy").setup({
 
 						["ac"] = { query = "@class.outer", desc = "Select class outer" },
 						["ic"] = { query = "@class.inner", desc = "Select class inner" },
+
+						["is"] = { query = "@statement.outer", desc = "Select statement outer" },
+						["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
 					},
 				},
 				swap = {
@@ -77,10 +80,12 @@ require("lazy").setup({
 					swap_next = {
 						["<leader>sa"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
 						["<leader>sm"] = { query = "@function.outer", desc = "Swap with next function" },
+						["<leader>ss"] = { query = "@statement.outer", desc = "Swap with next statement" },
 					},
 					swap_previous = {
-						["<leader>Sm"] = { query = "@function.outer", desc = "Swap with previous function" },
-						["<leader>Sa"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
+						["<leader>sA"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
+						["<leader>sM"] = { query = "@function.outer", desc = "Swap with previous function" },
+						["<leader>sS"] = { query = "@statement.outer", desc = "Swap with previous statement" },
 					},
 				},
 				move = {
@@ -94,6 +99,7 @@ require("lazy").setup({
 						["]a"] = { query = "@parameter.outer", desc = "Next parameter start" },
 						["]l"] = { query = "@loop.outer", desc = "Next loop start" },
 						["]i"] = { query = "@conditional.outer", desc = "Next conditional start" },
+						["]s"] = { query = "@statement.outer", desc = "Next statement start" },
 					},
 					goto_next_end = {
 						["]+"] = { query = "@assignment.outer", desc = "Next assignment end" },
@@ -103,6 +109,7 @@ require("lazy").setup({
 						["]A"] = { query = "@parameter.outer", desc = "Next parameter end" },
 						["]L"] = { query = "@loop.outer", desc = "Next loop end" },
 						["]I"] = { query = "@conditional.outer", desc = "Next conditional end" },
+						["]S"] = { query = "@statement.outer", desc = "Next statement end" },
 					},
 					goto_previous_start = {
 						["[="] = { query = "@assignment.outer", desc = "Previous assignment start" },
@@ -112,6 +119,7 @@ require("lazy").setup({
 						["[a"] = { query = "@parameter.outer", desc = "Previous parameter start" },
 						["[l"] = { query = "@loop.outer", desc = "Previous loop start" },
 						["[i"] = { query = "@conditional.outer", desc = "Previous conditional start" },
+						["[s"] = { query = "@statement.outer", desc = "Previous statement start" },
 					},
 					goto_previous_end = {
 						["[+"] = { query = "@assignment.outer", desc = "Previous assignment end" },
@@ -121,6 +129,7 @@ require("lazy").setup({
 						["[A"] = { query = "@parameter.outer", desc = "Previous parameter end" },
 						["[L"] = { query = "@loop.outer", desc = "Previous loop end" },
 						["[I"] = { query = "@conditional.outer", desc = "Previous conditional end" },
+						["[S"] = { query = "@statement.outer", desc = "Previous statement end" },
 					},
 				},
 			},
