@@ -106,6 +106,9 @@ return {
 
 						["ac"] = { query = "@class.outer", desc = "Select class outer" },
 						["ic"] = { query = "@class.inner", desc = "Select class inner" },
+
+						["is"] = { query = "@scopename.inner", desc = "Select scopename inner" },
+						["as"] = { query = "@statement.outer", desc = "Select statement outer" },
 					},
 				},
 				swap = {
@@ -113,10 +116,12 @@ return {
 					swap_next = {
 						["<leader>sa"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
 						["<leader>sm"] = { query = "@function.outer", desc = "Swap with next function" },
+						["<leader>ss"] = { query = "@statement.outer", desc = "Swap with next statement" },
 					},
 					swap_previous = {
 						["<leader>Sa"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
 						["<leader>Sm"] = { query = "@function.outer", desc = "Swap with previous function" },
+						["<leader>Ss"] = { query = "@statement.outer", desc = "Swap with previous statement" },
 					},
 				},
 				move = {
@@ -130,6 +135,7 @@ return {
 						["]a"] = { query = "@parameter.outer", desc = "Next parameter start" },
 						["]l"] = { query = "@loop.outer", desc = "Next loop start" },
 						["]i"] = { query = "@conditional.outer", desc = "Next conditional start" },
+						["]s"] = { query = "@statement.outer", desc = "Next statement start" },
 					},
 					goto_next_end = {
 						["]+"] = { query = "@assignment.outer", desc = "Next assignment end" },
@@ -139,6 +145,7 @@ return {
 						["]A"] = { query = "@parameter.outer", desc = "Next parameter end" },
 						["]L"] = { query = "@loop.outer", desc = "Next loop end" },
 						["]I"] = { query = "@conditional.outer", desc = "Next conditional end" },
+						["]S"] = { query = "@statement.outer", desc = "Next statement end" },
 					},
 					goto_previous_start = {
 						["[="] = { query = "@assignment.outer", desc = "Previous assignment start" },
@@ -148,6 +155,7 @@ return {
 						["[a"] = { query = "@parameter.outer", desc = "Previous parameter start" },
 						["[l"] = { query = "@loop.outer", desc = "Previous loop start" },
 						["[i"] = { query = "@conditional.outer", desc = "Previous conditional start" },
+						["[s"] = { query = "@statement.outer", desc = "Previous statement start" },
 					},
 					goto_previous_end = {
 						["[+"] = { query = "@assignment.outer", desc = "Previous assignment end" },
@@ -157,6 +165,7 @@ return {
 						["[A"] = { query = "@parameter.outer", desc = "Previous parameter end" },
 						["[L"] = { query = "@loop.outer", desc = "Previous loop end" },
 						["[I"] = { query = "@conditional.outer", desc = "Previous conditional end" },
+						["[S"] = { query = "@statement.outer", desc = "Previous statement end" },
 					},
 				},
 			},
