@@ -2,6 +2,7 @@ local opt = vim.opt
 local g = vim.g
 local autocmd = vim.api.nvim_create_autocmd
 -- leader key
+vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 g.mapleader = " "
 g.loaded_netrw = 0
 g.loaded_netrwPlugin = 0
@@ -28,14 +29,12 @@ opt.termguicolors = true
 
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.showmode = false -- Dont show mode since we have a statusline
-opt.timeout = true
-opt.timeoutlen = 300
 
 -- list chars
 opt.list = true
 opt.listchars = "tab:  ,trail:·,extends:❯,precedes:❮"
 opt.wrap = false
-opt.showcmdloc = 'statusline'
+opt.showcmdloc = "statusline"
 
 -- scroll config
 opt.scrolloff = 5 -- match with treesitter text-objects padding
