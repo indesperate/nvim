@@ -46,6 +46,8 @@ map("t", "<c-w>", "<c-\\><c-n><c-w>", { desc = "Terminal window", silent = true 
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "move down", silent = true })
 map("v", "K", ":m '<-2<cr>gv=gv", { desc = "move up", silent = true })
 
+map("v", "<c-c>", '"+y', { desc = "Copy to clipboard", silent = true })
+
 -- better indenting
 map("v", "<", "<gv")
 map("v", ">", ">gv")
