@@ -29,13 +29,13 @@ map("n", "gd", vim.lsp.buf.definition, { desc = "Lsp def", silent = true })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Lsp impl", silent = true })
 
 -- tab manipulate
-map("n", "<c-b>c", "<cmd>tabnew<cr>", { desc = "New tab", silent = true })
-map("n", "<c-b>n", "<cmd>tabnext<cr>", { desc = "Next tab", silent = true })
-map("n", "<c-b>p", "<cmd>tabprevious<cr>", { desc = "Previous tab", silent = true })
-map("n", "<c-b>x", "<cmd>tabclose<cr>", { desc = "Close tab", silent = true })
+map("n", "<c-n>c", "<cmd>tabnew<cr>", { desc = "New tab", silent = true })
+map("n", "<c-n>n", "<cmd>tabnext<cr>", { desc = "Next tab", silent = true })
+map("n", "<c-n>p", "<cmd>tabprevious<cr>", { desc = "Previous tab", silent = true })
+map("n", "<c-n>x", "<cmd>tabclose<cr>", { desc = "Close tab", silent = true })
 
 -- terminal mappings
-map("t", "<c-b>", "<c-\\><c-n>", { desc = "Terminal escape", silent = true })
+map("t", "<c-n>", "<c-\\><c-n>", { desc = "Terminal escape", silent = true })
 map("t", "<c-h>", "<c-\\><c-n><c-w>h", { desc = "Terminal left", silent = true })
 map("t", "<c-j>", "<c-\\><c-n><c-w>j", { desc = "Terminal down", silent = true })
 map("t", "<c-k>", "<c-\\><c-n><c-w>k", { desc = "Terminal up", silent = true })
@@ -65,4 +65,25 @@ if os.getenv("TMUX") then
 	map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })
 	map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true })
 	map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { silent = true })
+
+	_G.cached_tmux_pane = nil
+	local function send_line_to_tmux_pane()
+		local current_line = vim.api.nvim_get_current_line()
+
+		if _G.cached_tmux_pane == nil then
+			os.execute("tmux display-panes")
+			_G.cached_tmux_pane = vim.fn.input("Enter tmux pane number: ")
+		end
+
+		os.execute("tmux send-keys -t " .. _G.cached_tmux_pane .. " " .. vim.fn.shellescape(current_line) .. " Enter")
+	end
+	local function clear_tmux_pane_cache()
+		_G.cached_tmux_pane = nil
+	end
+	vim.keymap.set("n", "<c-n>s", send_line_to_tmux_pane, { desc = "Send line to another tmux pane" })
+	vim.api.nvim_create_user_command(
+		"ClearTmuxPaneCache",
+		clear_tmux_pane_cache,
+		{ desc = "Clear tmux pane cache to send command" }
+	)
 end
