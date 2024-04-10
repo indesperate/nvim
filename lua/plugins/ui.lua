@@ -172,39 +172,6 @@ return {
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	-- ui components
 	{ "MunifTanjim/nui.nvim", lazy = true },
-	-- dashboard
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		config = function()
-			require("dashboard").setup({
-				theme = "hyper",
-				config = {
-					week_header = {
-						enable = true,
-					},
-					shortcut = {
-						{ desc = "💤Lazy", group = "@property", action = "Lazy", key = "l" },
-						{ desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
-						{
-							icon = " ",
-							icon_hl = "@variable",
-							desc = "Files",
-							group = "Label",
-							action = "Telescope find_files",
-							key = "f",
-						},
-						{
-							desc = "󰗼 Quit",
-							action = "qall!",
-							key = "q",
-						},
-					},
-				},
-			})
-		end,
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	},
 	{
 		"Bekaboo/dropbar.nvim",
 		event = { "BufReadPre", "BufNewFile" },
