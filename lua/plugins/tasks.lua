@@ -10,17 +10,23 @@ return {
 		opts = {},
 		keys = {
 			{
-				"<leader>t",
+				"<leader>tt",
 				function()
 					require("overseer").toggle()
 				end,
 				{ desc = "Toggle task overview" },
 			},
 			{
-				"<leader>b",
+				"<leader>tb",
 				"<CMD>OverseerRun<CR>",
 				{ desc = "Build tasks" },
 			},
 		},
+	},
+	{
+		"michaelb/sniprun",
+		cmd = { "SnipRun" },
+		build = "sh install.sh",
+		opts = {},
 	},
 }

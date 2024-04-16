@@ -69,6 +69,7 @@ return {
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },
+					{ name = "orgmode" },
 				}),
 				mapping = cmp.mapping.preset.insert({
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
