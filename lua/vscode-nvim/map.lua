@@ -23,7 +23,7 @@ map("n", "L", function()
 end, { silent = true })
 
 map("n", "<leader>fg", function()
-	vscode.call("workbench.action.experimental.quickTextSearch")
+	vscode.call("workbench.action.quickTextSearch")
 end, { silent = true })
 map("n", "<leader>fs", function()
 	vscode.call("workbench.action.gotoSymbol")
