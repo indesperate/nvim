@@ -14,13 +14,6 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.comment",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("mini.comment").setup()
-		end,
-	},
-	{
 		"kylechui/nvim-surround",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
