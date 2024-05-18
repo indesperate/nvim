@@ -17,13 +17,14 @@ map("n", "<c-l>", "<c-w><c-l>", { desc = "Right window", silent = true })
 map("v", "K", "k", { desc = "Don't check", silent = true })
 
 -- lsp map
+-- version > 0.10.0 default
+-- map("n", "K", vim.lsp.buf.hover, { desc = "Lsp hover", silent = true })
+-- map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic", silent = true })
+-- map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic", silent = true })
 map("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Lsp help", silent = true })
-map("n", "K", vim.lsp.buf.hover, { desc = "Lsp hover", silent = true })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Lsp declar", silent = true })
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Lsp rename", silent = true })
 map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Lsp action", silent = true })
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic", silent = true })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic", silent = true })
 map("n", "gr", vim.lsp.buf.references, { desc = "Lsp refer", silent = true })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Lsp def", silent = true })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Lsp impl", silent = true })
