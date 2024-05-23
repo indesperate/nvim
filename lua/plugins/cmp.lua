@@ -27,20 +27,14 @@ local kind_icons = {
 	TypeParameter = "󰅲",
 }
 return {
-	-- lua snip
+	-- snip
 	{
-		"L3MON4D3/LuaSnip",
-		event = "InsertEnter",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-			config = function()
-				require("luasnip.loaders.from_vscode").lazy_load()
-			end,
-		},
+		"garymjr/nvim-snippets",
 		opts = {
-			history = true,
-			delete_check_events = "TextChanged",
+			friendly_snippets = true,
+			global_snippets = { "all", "global" },
 		},
+		dependencies = { "rafamadriz/friendly-snippets" },
 	},
 	-- auto complete
 	{
@@ -51,21 +45,15 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
+			"garymjr/nvim-snippets",
 		},
 		config = function()
 			-- complete
-			local luasnip = require("luasnip")
 			local cmp = require("cmp")
 			cmp.setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
+					{ name = "snippets" },
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },
@@ -76,8 +64,10 @@ return {
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
+						elseif vim.snippet.active({ direction = 1 }) then
+							vim.schedule(function()
+								vim.snippet.jump(1)
+							end)
 						else
 							fallback()
 						end
@@ -89,8 +79,10 @@ return {
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
+						elseif vim.snippet.active({ direction = -1 }) then
+							vim.schedule(function()
+								vim.snippet.jump(-1)
+							end)
 						else
 							fallback()
 						end
