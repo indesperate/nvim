@@ -35,6 +35,38 @@ return {
 			global_snippets = { "all", "global" },
 		},
 		dependencies = { "rafamadriz/friendly-snippets" },
+		keys = {
+			{
+				"<Tab>",
+				function()
+					if vim.snippet.active({ direction = 1 }) then
+						vim.schedule(function()
+							vim.snippet.jump(1)
+						end)
+						return
+					end
+					return "<Tab>"
+				end,
+				expr = true,
+				silent = true,
+				mode = { "i", "s" },
+			},
+			{
+				"<S-Tab>",
+				function()
+					if vim.snippet.active({ direction = -1 }) then
+						vim.schedule(function()
+							vim.snippet.jump(-1)
+						end)
+						return
+					end
+					return "<S-Tab>"
+				end,
+				expr = true,
+				silent = true,
+				mode = { "i", "s" },
+			},
+		},
 	},
 	-- auto complete
 	{
@@ -60,36 +92,9 @@ return {
 					{ name = "orgmode" },
 				}),
 				mapping = cmp.mapping.preset.insert({
+					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						elseif vim.snippet.active({ direction = 1 }) then
-							vim.schedule(function()
-								vim.snippet.jump(1)
-							end)
-						else
-							fallback()
-						end
-					end, {
-						"i",
-						"s",
-					}),
-
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif vim.snippet.active({ direction = -1 }) then
-							vim.schedule(function()
-								vim.snippet.jump(-1)
-							end)
-						else
-							fallback()
-						end
-					end, {
-						"i",
-						"s",
-					}),
 				}),
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
