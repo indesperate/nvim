@@ -2,18 +2,6 @@ local vscode = require("vscode-neovim")
 
 local map = vim.keymap.set
 map("n", " ", "<Nop>", { silent = true, remap = false })
-map("n", "<c-h>", function()
-	vscode.call("workbench.action.focusLeftGroup")
-end, { silent = true })
-map("n", "<c-l>", function()
-	vscode.call("workbench.action.focusRightGroup")
-end, { silent = true })
-map("n", "<c-j>", function()
-	vscode.call("workbench.action.focusBelowGroup")
-end, { silent = true })
-map("n", "<c-k>", function()
-	vscode.call("workbench.action.focusAboveGroup")
-end, { silent = true })
 
 map("n", "H", function()
 	vscode.call("workbench.action.previousEditor")
@@ -87,7 +75,7 @@ map("v", "K", function()
 end, { silent = true })
 
 map("n", "<leader>n", function()
-	vscode.call("workbench.view.explorer")
+	vscode.call("workbench.explorer.fileView.focus")
 end, { silent = true })
 
 map("v", ".", ":norm.<cr>", { silent = true })
