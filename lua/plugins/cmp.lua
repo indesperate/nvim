@@ -89,7 +89,6 @@ return {
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },
-					{ name = "orgmode" },
 				}),
 				mapping = cmp.mapping.preset.insert({
 					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),

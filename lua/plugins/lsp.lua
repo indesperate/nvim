@@ -32,17 +32,11 @@ return {
 			},
 		},
 		config = function(_, opts)
-			require("neoconf").setup()
 			require("mason-lspconfig").setup(opts)
 		end,
 		dependencies = {
-			"folke/neoconf.nvim",
+			"williamboman/mason.nvim",
 			"neovim/nvim-lspconfig",
 		},
-	},
-	{
-		"folke/neoconf.nvim",
-		cmd = "Neoconf",
-		opts = {},
 	},
 }
