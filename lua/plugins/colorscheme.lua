@@ -30,6 +30,7 @@ return {
 				enabled = true,
 				color_mode = true,
 			},
+      nvim_surround = true,
 			markdown = true,
 			noice = true,
 			which_key = true,

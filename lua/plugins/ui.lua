@@ -41,14 +41,15 @@ return {
 		opts = {
 			options = {
 				globalstatus = true,
+				icons_enabled = true,
 				theme = "catppuccin",
 				disabled_filetypes = { statusline = { "dashboard" } },
 			},
+			extensions = { "neo-tree" },
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = { "diff", "diagnostics" },
 				lualine_c = {
-					"filename",
 					{
 						function()
 							return require("noice").api.status.mode.get()
@@ -61,7 +62,7 @@ return {
 				},
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_z = { "branch" },
 			},
 		},
 	},
