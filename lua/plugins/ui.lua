@@ -100,10 +100,22 @@ return {
 	{
 
 		"folke/noice.nvim",
+		version = "4.4.7",
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
+			{
+				"rcarriga/nvim-notify",
+				config = function()
+					require("notify").setup({
+						fps = 60,
+						stages = "slide",
+						render = "wrapped-compact",
+						background_colour = "FloatShadow",
+						timeout = 3000,
+					})
+				end,
+			},
 		},
 		opts = {
 			lsp = {
