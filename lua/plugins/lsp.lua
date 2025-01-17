@@ -1,4 +1,4 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 return {
 	{
 		"williamboman/mason.nvim",
@@ -15,18 +15,6 @@ return {
 				function(server_name) -- default handler
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
-					})
-				end,
-				["lua_ls"] = function()
-					require("lspconfig").lua_ls.setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								completion = {
-									callSnippet = "Replace",
-								},
-							},
-						},
 					})
 				end,
 			},
