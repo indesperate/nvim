@@ -22,7 +22,7 @@ return {
 
 			fuzzy = {
 				prebuilt_binaries = {
-					download = false,
+					download = true,
 				},
 			},
 
