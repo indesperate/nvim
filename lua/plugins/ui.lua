@@ -66,29 +66,6 @@ return {
 			},
 		},
 	},
-	-- indent blank
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			indent = {
-				char = "│",
-				tab_char = "│",
-			},
-			scope = { enabled = false },
-			exclude = {
-				filetypes = {
-					"help",
-					"neo-tree",
-					"lazy",
-					"mason",
-					"notify",
-					"toggleterm",
-				},
-			},
-		},
-		main = "ibl",
-	},
 	-- show key help
 	{
 		"folke/which-key.nvim",
@@ -107,10 +84,5 @@ return {
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 		},
-	},
-	{
-		"folke/zen-mode.nvim",
-		lazy = true,
-		cmd = "ZenMode",
 	},
 }

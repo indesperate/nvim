@@ -118,10 +118,4 @@ return {
 			},
 		},
 	},
-	{
-		"nvim-pack/nvim-spectre",
-		lazy = true,
-		cmd = "Spectre",
-		opts = { open_cmd = "noswapfile vnew" },
-	},
 }
