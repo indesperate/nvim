@@ -1,72 +1,35 @@
+---@type LazySpec
 return {
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
+	"mikavilpas/yazi.nvim",
+	event = "VeryLazy",
+	keys = {
+		-- 👇 in this section, choose your own keymappings!
+		{
+			"<leader>nf",
+			mode = { "n", "v" },
+			"<cmd>Yazi<cr>",
+			desc = "Open yazi at the current file",
 		},
-		cmd = "Neotree",
-		init = function()
-			if vim.fn.argc(-1) == 1 then
-				local stat = vim.loop.fs_stat(vim.fn.argv(0))
-				if stat and stat.type == "directory" then
-					require("neo-tree")
-				end
-			end
-		end,
-		keys = {
-			{
-				"<leader>nf",
-				function()
-					require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-				end,
-				desc = "Explorer NeoTree (cwd)",
-			},
-			{
-				"<leader>ng",
-				function()
-					require("neo-tree.command").execute({ source = "git_status", toggle = true })
-				end,
-				desc = "Git explorer",
-			},
-			{
-				"<leader>nb",
-				function()
-					require("neo-tree.command").execute({ source = "buffers", toggle = true })
-				end,
-				desc = "Buffer explorer",
-			},
-			{
-				"<leader>nd",
-				function()
-					require("neo-tree.command").execute({ source = "document_symbols", toggle = true })
-				end,
-				desc = "Symbols explorer",
-			},
+		{
+			-- Open in the current working directory
+			"<leader>nw",
+			"<cmd>Yazi cwd<cr>",
+			desc = "Open the file manager in nvim's working directory",
 		},
-		deactivate = function()
-			vim.cmd([[Neotree close]])
-		end,
-		opts = {
-			open_files_do_not_replace_types = { "terminal", "trouble", "qf", "OverseerList", "OverseerForm" },
-			filesystem = {
-				group_empty_dirs = true,
-				follow_current_file = { enabled = true },
-				use_libuv_file_watcher = true,
-			},
-			window = {
-				width = 30,
-				mappings = {
-					["<space>"] = false,
-					["n"] = {
-						"toggle_node",
-						nowait = true,
-					},
-				},
-			},
-			sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+		{
+			-- NOTE: this requires a version of yazi that includes
+			-- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
+			"<leader>nt",
+			"<cmd>Yazi toggle<cr>",
+			desc = "Resume the last yazi session",
+		},
+	},
+	---@type YaziConfig
+	opts = {
+		-- if you want to open yazi instead of netrw, see below for more info
+		open_for_directories = true,
+		keymaps = {
+			show_help = "<f1>",
 		},
 	},
 }

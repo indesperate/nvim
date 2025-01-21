@@ -24,14 +24,6 @@ return {
 					delay = 200,
 					reveal = { "close" },
 				},
-				offsets = {
-					{
-						filetype = "neo-tree",
-						text = "Neo-tree",
-						highlight = "Directory",
-						text_align = "left",
-					},
-				},
 			},
 		},
 	},
@@ -45,21 +37,10 @@ return {
 				theme = "catppuccin",
 				disabled_filetypes = { statusline = { "dashboard" } },
 			},
-			extensions = { "neo-tree" },
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "diff", "diagnostics" },
-				lualine_c = {
-					{
-						function()
-							return require("noice").api.status.mode.get()
-						end,
-						cond = function()
-							return package.loaded["noice"] and require("noice").api.status.mode.has()
-						end,
-					},
-					"%S",
-				},
+				lualine_c = { "%S" },
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "branch" },
@@ -74,9 +55,6 @@ return {
 		opts = {},
 	},
 	-- icons
-	{ "nvim-tree/nvim-web-devicons", lazy = true },
-	-- ui components
-	{ "MunifTanjim/nui.nvim", lazy = true },
 	{
 		"Bekaboo/dropbar.nvim",
 		event = { "BufReadPre", "BufNewFile" },

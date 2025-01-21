@@ -35,10 +35,8 @@ return {
 			which_key = true,
 			cmp = true,
 			mason = true,
-			neotree = true,
 			treesitter = true,
 			treesitter_context = true,
-			gitsigns = true,
 		},
 	},
 }
