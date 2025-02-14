@@ -6,37 +6,37 @@ return {
 		flavour = "mocha",
 		transparent_background = true,
 		integrations = {
-			telescope = {
+			native_lsp = {
 				enabled = true,
-				style = "nvchad",
+				virtual_text = {
+					errors = { "italic" },
+					hints = { "italic" },
+					warnings = { "italic" },
+					information = { "italic" },
+				},
+				underlines = {
+					errors = { "underline" },
+					hints = { "undercurl" },
+					warnings = { "undercurl" },
+					information = { "undercurl" },
+				},
+				inlay_hints = {
+					background = true,
+				},
 			},
-			semantic_tokens = true,
-			virtual_text = {
-				errors = { "italic" },
-				hints = { "italic" },
-				warnings = { "italic" },
-				information = { "italic" },
-			},
-			underlines = {
-				errors = { "underline" },
-				hints = { "undercurl" },
-				warnings = { "undercurl" },
-				information = { "undercurl" },
-			},
-			inlay_hints = {
-				background = true,
-			},
+			blink_cmp = true,
 			dropbar = {
 				enabled = true,
 				color_mode = true,
 			},
-			nvim_surround = true,
-			markdown = true,
-			which_key = true,
-			cmp = true,
+			fzf = true,
 			mason = true,
+			markdown = true,
+			nvim_surround = true,
 			treesitter = true,
 			treesitter_context = true,
+			snacks = true,
+			which_key = true,
 		},
 	},
 }

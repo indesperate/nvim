@@ -80,6 +80,14 @@ return {
 				},
 			},
 			textobjects = {
+				lsp_interop = {
+					enable = true,
+					border = "rounded",
+					floating_preview_opts = {},
+					peek_definition_code = {
+						["gp"] = "@function.outer",
+					},
+				},
 				select = {
 					enable = true,
 					lookahead = true,
@@ -120,7 +128,7 @@ return {
 				move = {
 					enable = true,
 					set_jumps = true,
-					goto_next_start = {
+					goto_next = {
 						["]m"] = { query = "@call.outer", desc = "Next function call start" },
 						["]f"] = { query = "@function.outer", desc = "Next method start" },
 						["]k"] = { query = "@class.outer", desc = "Next class start" },
@@ -128,15 +136,7 @@ return {
 						["]l"] = { query = "@loop.outer", desc = "Next loop start" },
 						["]i"] = { query = "@conditional.outer", desc = "Next conditional start" },
 					},
-					goto_next_end = {
-						["]M"] = { query = "@call.outer", desc = "Next function call end" },
-						["]F"] = { query = "@function.outer", desc = "Next method end" },
-						["]K"] = { query = "@class.outer", desc = "Next class end" },
-						["]P"] = { query = "@parameter.outer", desc = "Next parameter end" },
-						["]L"] = { query = "@loop.outer", desc = "Next loop end" },
-						["]I"] = { query = "@conditional.outer", desc = "Next conditional end" },
-					},
-					goto_previous_start = {
+					goto_previous = {
 						["[m"] = { query = "@call.outer", desc = "Previous function call start" },
 						["[f"] = { query = "@function.outer", desc = "Previous method start" },
 						["[k"] = { query = "@class.outer", desc = "Previous class start" },
@@ -144,20 +144,24 @@ return {
 						["[l"] = { query = "@loop.outer", desc = "Previous loop start" },
 						["[i"] = { query = "@conditional.outer", desc = "Previous conditional start" },
 					},
-					goto_previous_end = {
-						["[M"] = { query = "@call.outer", desc = "Previous function call end" },
-						["[F"] = { query = "@function.outer", desc = "Previous method end" },
-						["[K"] = { query = "@class.outer", desc = "Previous class end" },
-						["[P"] = { query = "@parameter.outer", desc = "Previous parameter end" },
-						["[L"] = { query = "@loop.outer", desc = "Previous loop end" },
-						["[I"] = { query = "@conditional.outer", desc = "Previous conditional end" },
-					},
 				},
 			},
 		},
 		config = function(_, opts)
 			require("nvim-treesitter.install").prefer_git = true
 			require("nvim-treesitter.configs").setup(opts)
+			local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+
+			-- Repeat movement with ; and ,
+			-- ensure ; goes forward and , goes backward regardless of the last direction
+			vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+			vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+
+			-- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+			vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
+			vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
+			vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
+			vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 		end,
 	},
 }

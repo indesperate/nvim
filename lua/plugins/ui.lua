@@ -26,6 +26,7 @@ return {
 				},
 			},
 		},
+		dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
 	},
 	-- under status line
 	{
@@ -46,6 +47,7 @@ return {
 				lualine_z = { "branch" },
 			},
 		},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	-- show key help
 	{
