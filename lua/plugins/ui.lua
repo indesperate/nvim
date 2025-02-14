@@ -49,20 +49,9 @@ return {
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-	-- show key help
-	{
-		"folke/which-key.nvim",
-		lazy = true,
-		cmd = "WhichKey",
-		opts = {},
-	},
 	-- icons
 	{
 		"Bekaboo/dropbar.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		-- optional, but required for fuzzy finder support
-		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
-		},
 	},
 }

@@ -14,4 +14,11 @@ return {
 		end,
 	},
 	{ "christoomey/vim-tmux-navigator", event = "VeryLazy" },
+	-- show key help
+	{
+		"folke/which-key.nvim",
+		lazy = true,
+		cmd = "WhichKey",
+		opts = {},
+	},
 }
