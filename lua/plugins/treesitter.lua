@@ -32,10 +32,6 @@ return {
 				},
 			},
 		},
-		keys = {
-			{ "gn", desc = "Increment selection" },
-			{ "<bs>", desc = "Decrement selection" },
-		},
 		opts = {
 			ensure_installed = {
 				"bash",
@@ -71,13 +67,7 @@ return {
 				enable = true,
 			},
 			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "gn",
-					node_incremental = "gn",
-					scope_incremental = false,
-					node_decremental = "<bs>",
-				},
+				enable = false,
 			},
 			textobjects = {
 				lsp_interop = {
@@ -85,7 +75,7 @@ return {
 					border = "rounded",
 					floating_preview_opts = {},
 					peek_definition_code = {
-						["gp"] = "@function.outer",
+						["gD"] = "@function.outer",
 					},
 				},
 				select = {
