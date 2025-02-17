@@ -3,11 +3,8 @@ local map = vim.keymap.set
 -- useful map
 map("n", "H", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "L", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "[q", "<cmd>cprevious<cr>", { desc = "Prev quick fix" })
 map("n", "]q", "<cmd>cnext<cr>", { desc = "Next quick fix" })
-map("n", "<leader>q", "<cmd>bd<cr>", { desc = "Quit buffer", silent = true })
 map("n", "<c-h>", "<c-w><c-h>", { desc = "Left window", silent = true })
 map("n", "<c-j>", "<c-w><c-j>", { desc = "Down window", silent = true })
 map("n", "<c-k>", "<c-w><c-k>", { desc = "Up window", silent = true })
@@ -20,6 +17,9 @@ map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Lsp action", silent = t
 map("n", "gr", vim.lsp.buf.references, { desc = "Lsp refer", silent = true })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Lsp def", silent = true })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Lsp impl", silent = true })
+map("n", "<leader>i", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+end)
 
 -- useful map
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "move down", silent = true })
