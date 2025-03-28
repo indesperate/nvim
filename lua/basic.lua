@@ -65,6 +65,11 @@ opt.virtualedit = "block"
 -- undo history
 opt.undolevels = 10000
 
+opt.winborder = "rounded"
+
+-- diagnostic
+vim.diagnostic.config({ virtual_lines = true })
+
 -- set vim grep
 if vim.fn.executable("rg") then
 	opt.grepformat = "%f:%l:%c:%m"
