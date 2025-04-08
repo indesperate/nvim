@@ -3,8 +3,6 @@ local map = vim.keymap.set
 -- useful map
 map("n", "H", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "L", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "[q", "<cmd>cprevious<cr>", { desc = "Prev quick fix" })
-map("n", "]q", "<cmd>cnext<cr>", { desc = "Next quick fix" })
 map("n", "<c-h>", "<c-w><c-h>", { desc = "Left window", silent = true })
 map("n", "<c-j>", "<c-w><c-j>", { desc = "Down window", silent = true })
 map("n", "<c-k>", "<c-w><c-k>", { desc = "Up window", silent = true })
