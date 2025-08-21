@@ -3,7 +3,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     opts = {
-      highlights = require("catppuccin.groups.integrations.bufferline").get({
+      highlights = require("catppuccin.groups.integrations.bufferline").get_theme({
         custom = {
           all = {
             fill = { bg = "#000000" },
