@@ -68,7 +68,7 @@ opt.undolevels = 10000
 opt.winborder = "rounded"
 
 -- diagnostic
-vim.diagnostic.config({ virtual_lines = true })
+vim.diagnostic.config({ virtual_text = true })
 
 -- set vim grep
 if vim.fn.executable("rg") then
