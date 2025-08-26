@@ -5,6 +5,7 @@ return {
 	cmd = "ConformInfo",
 	opts = {
 		formatters_by_ft = {
+			python = { "ruff" },
 			lua = { "stylua" },
 			c = { "clang-format" },
 			cpp = { "clang-format" },
