@@ -81,6 +81,29 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup("Lazy_" .. name, { clear = true })
 end
 
+function osc52_paste()
+	return function(lines)
+		local content = vim.fn.getreg('"')
+		return vim.split(content, "\n")
+	end
+end
+
+-- osc52 for ssh yank support
+if os.getenv("WSL_DISTRO_NAME") then
+	vim.g.clipboard = {
+		name = "WslClipboard",
+		copy = {
+			["+"] = "clip.exe",
+			["*"] = "clip.exe",
+		},
+		-- windows terminal doesn't support paste now, just use a dummy function
+		paste = {
+			["+"] = osc52_paste(),
+			["*"] = osc52_paste(),
+		},
+	}
+end
+
 -- osc52 for ssh yank support
 if os.getenv("SSH_TTY") then
 	vim.g.clipboard = {
@@ -91,8 +114,8 @@ if os.getenv("SSH_TTY") then
 		},
 		-- windows terminal doesn't support paste now, just use a dummy function
 		paste = {
-			["+"] = function() end,
-			["*"] = function() end,
+			["+"] = osc52_paste(),
+			["*"] = osc52_paste(),
 		},
 	}
 end
