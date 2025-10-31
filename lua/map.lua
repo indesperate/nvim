@@ -33,11 +33,6 @@ map("v", ">", ">gv")
 -- visual normal
 map("v", ".", ":norm.<cr>", { desc = "Visual normal" })
 
--- undo break-points, break undo history to pieces
-map("i", ",", ",<c-g>u")
-map("i", ".", ".<c-g>u")
-map("i", ";", ";<c-g>u")
-
 if os.getenv("TMUX") then
 	map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })
 	map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })
