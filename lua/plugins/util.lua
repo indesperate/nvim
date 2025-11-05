@@ -82,9 +82,8 @@ return {
 			columns = {
 				"icon",
 				"permissions",
-				"size",
-				"mtime",
 			},
+			skip_confirm_for_simple_edits = true,
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
 		lazy = false,
