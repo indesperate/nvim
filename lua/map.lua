@@ -8,6 +8,9 @@ map("n", "<c-j>", "<c-w><c-j>", { desc = "Down window", silent = true })
 map("n", "<c-k>", "<c-w><c-k>", { desc = "Up window", silent = true })
 map("n", "<c-l>", "<c-w><c-l>", { desc = "Right window", silent = true })
 
+-- Neotree
+map("n", "<leader>n", "<cmd>Neotree<cr>", { desc = "Open Neotree", silent = true })
+
 -- lsp map
 map("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Lsp help", silent = true })
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Lsp rename", silent = true })

@@ -13,13 +13,6 @@ return {
 				desc = "Find files",
 			},
 			{
-				"<leader>fg",
-				function()
-					require("fzf-lua").live_grep()
-				end,
-				desc = "Live grep",
-			},
-			{
 				"<leader>fc",
 				function()
 					require("fzf-lua").command_history()
@@ -32,6 +25,13 @@ return {
 					require("fzf-lua").lsp_workspace_diagnostics()
 				end,
 				desc = "Search workspace diagnostics",
+			},
+			{
+				"<leader>fg",
+				function()
+					require("fzf-lua").live_grep()
+				end,
+				desc = "Live grep",
 			},
 			{
 				"<leader>fs",
