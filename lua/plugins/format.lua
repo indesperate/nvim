@@ -1,33 +1,29 @@
 return {
-	"stevearc/conform.nvim",
-	dependencies = { "mason.nvim" },
-	lazy = true,
-	cmd = "ConformInfo",
-	opts = {
-		formatters_by_ft = {
-			python = { "ruff" },
-			lua = { "stylua" },
-			c = { "clang-format" },
-			cpp = { "clang-format" },
-			sh = { "shfmt" },
-			json = { "biome" },
-			jsonc = { "biome" },
-			javascript = { "biome" },
-		},
-		format_on_save = {
-			-- These options will be passed to conform.format()
-			timeout_ms = 500,
-			lsp_fallback = true,
-		},
-		notify_on_error = true,
-	},
-	keys = {
-		{
-			"<leader>=",
-			function()
-				require("conform").format({ lsp_fallback = "always" })
-			end,
-			desc = "format",
-		},
-	},
+    "stevearc/conform.nvim",
+    lazy = true,
+    cmd = "ConformInfo",
+    opts = {
+        formatters_by_ft = {
+            python = { "ruff" },
+            lua = { "stylua" },
+            c = { "clang-format" },
+            cpp = { "clang-format" },
+            sh = { "shfmt" },
+            json = { "biome" },
+            jsonc = { "biome" },
+            javascript = { "biome" },
+        },
+        default_format_opts = {
+            lsp_format = "first",
+        },
+    },
+    keys = {
+        {
+            "<leader>=",
+            function()
+                require("conform").format()
+            end,
+            desc = "format",
+        },
+    },
 }
