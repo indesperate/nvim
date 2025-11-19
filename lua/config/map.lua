@@ -7,10 +7,6 @@ map("n", "<leader>n", oil.toggle_float, { desc = "Toggle oil floating window" })
 -- useful map
 map("n", "H", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "L", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "<c-h>", "<c-w><c-h>", { desc = "Left window", silent = true })
-map("n", "<c-j>", "<c-w><c-j>", { desc = "Down window", silent = true })
-map("n", "<c-k>", "<c-w><c-k>", { desc = "Up window", silent = true })
-map("n", "<c-l>", "<c-w><c-l>", { desc = "Right window", silent = true })
 
 -- lsp map
 map("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Lsp help", silent = true })
@@ -36,10 +32,3 @@ map("v", ">", ">gv")
 
 -- visual normal
 map("v", ".", ":norm.<cr>", { desc = "Visual normal" })
-
-if os.getenv("TMUX") then
-    map("n", "<C-h>", "<cmd>NvimTmuxNavigateLeft<cr>", { silent = true })
-    map("n", "<C-j>", "<cmd>NvimTmuxNavigateDown<cr>", { silent = true })
-    map("n", "<C-k>", "<cmd>NvimTmuxNavigateUp<cr>", { silent = true })
-    map("n", "<C-l>", "<cmd>NvimTmuxNavigateRight<cr>", { silent = true })
-end
