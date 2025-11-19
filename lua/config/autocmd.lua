@@ -6,6 +6,7 @@ autocmd("FileType", {
         "help",
         "man",
         "checkhealth",
+        "oil",
         "qf",
     },
     callback = function(event)
