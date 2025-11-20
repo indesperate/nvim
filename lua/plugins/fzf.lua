@@ -5,6 +5,7 @@ return {
         opts = {
             file_icon_padding = " ",
         },
+        cmd = "FzfLua",
         keys = {
             {
                 "<leader>ff",
@@ -16,9 +17,9 @@ return {
             {
                 "<leader>fc",
                 function()
-                    require("fzf-lua").command_history()
+                    require("fzf-lua").git_status()
                 end,
-                desc = "Search command history",
+                desc = "Search git status",
             },
             {
                 "<leader>fd",
