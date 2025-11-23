@@ -15,6 +15,13 @@ return {
                 desc = "Find files",
             },
             {
+                "<leader>fr",
+                function()
+                    require("fzf-lua").lsp_references()
+                end,
+                desc = "Search lsp references",
+            },
+            {
                 "<leader>fc",
                 function()
                     require("fzf-lua").git_status()
@@ -24,9 +31,9 @@ return {
             {
                 "<leader>fd",
                 function()
-                    require("fzf-lua").lsp_workspace_diagnostics()
+                    require("fzf-lua").lsp_document_diagnostics()
                 end,
-                desc = "Search workspace diagnostics",
+                desc = "Search buffer diagnostics",
             },
             {
                 "<leader>fg",

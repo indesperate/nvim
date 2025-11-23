@@ -8,6 +8,7 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable("ruff")
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("codebook")
 
 local autocmd = vim.api.nvim_create_autocmd
 -- codelens and inlay hints
