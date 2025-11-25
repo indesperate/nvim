@@ -25,13 +25,18 @@ return {
         -- C-k: Toggle signature help (if signature.enabled = true)
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        keymap = { preset = "super-tab" },
+        keymap = {
+            preset = "super-tab",
+            ["<C-j>"] = { "show", "show_documentation", "hide_documentation" },
+        },
 
         appearance = {
             -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
             -- Adjusts spacing to ensure icons are aligned
             nerd_font_variant = "mono",
         },
+
+        signature = { enabled = true },
 
         -- (Default) Only show the documentation popup when manually triggered
         completion = { documentation = { auto_show = false } },

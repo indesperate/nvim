@@ -9,7 +9,6 @@ map("n", "H", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "L", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- lsp map
-map("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Lsp help", silent = true })
 map("n", "<leader>r", vim.lsp.buf.rename, { desc = "Lsp rename", silent = true })
 map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Lsp action", silent = true })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Lsp def", silent = true })
