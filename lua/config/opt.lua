@@ -28,6 +28,7 @@ opt.listchars = "tab:➜ ,trail:·,extends:❯,precedes:❮"
 -- no word wrap
 opt.wrap = false
 opt.showcmdloc = "statusline"
+opt.cmdheight = 0
 
 -- scroll config
 opt.smoothscroll = true
