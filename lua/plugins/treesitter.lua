@@ -14,7 +14,6 @@ return {
                 "csv",
                 "just",
                 "json",
-                "jsonc",
                 "lua",
                 "markdown",
                 "markdown_inline",
