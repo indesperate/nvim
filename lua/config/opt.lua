@@ -2,6 +2,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 local opt = vim.opt
 
+-- search
+opt.ignorecase = true
+opt.smartcase = true
+
 -- show number
 opt.number = true
 opt.relativenumber = true
