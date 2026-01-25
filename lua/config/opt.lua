@@ -22,6 +22,11 @@ opt.expandtab = true
 -- force using true color
 opt.termguicolors = true
 
+-- terminal features
+local termfeatures = vim.g.termfeatures or {}
+termfeatures.osc52 = true
+vim.g.termfeatures = termfeatures
+
 -- Don't show mode since we have a status line
 opt.showmode = false
 
