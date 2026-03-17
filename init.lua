@@ -1,5 +1,5 @@
 require("config.lazy")
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin-nvim")
 require("config.lsp")
 require("config.map")
 require("config.autocmd")
