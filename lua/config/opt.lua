@@ -52,7 +52,7 @@ opt.shortmess:append({ I = true, c = true, C = true })
 opt.winborder = "rounded"
 
 -- set vim grep using ripgrep
-if vim.fn.executable("rg") then
+if vim.fn.executable("rg") == 1 then
     opt.grepformat = "%f:%l:%c:%m"
     opt.grepprg = "rg --vimgrep --smart-case"
 end

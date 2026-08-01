@@ -14,9 +14,6 @@ map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Lsp action", silent = t
 map("n", "gd", vim.lsp.buf.definition, { desc = "Lsp def", silent = true })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Lsp impl", silent = true })
 map("n", "J", vim.diagnostic.open_float, { desc = "Open diagnostic", silent = true })
-map("n", "<leader>i", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
-end)
 
 -- useful map
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "move down", silent = true })

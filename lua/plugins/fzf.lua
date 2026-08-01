@@ -31,7 +31,7 @@ return {
             {
                 "<leader>fd",
                 function()
-                    require("fzf-lua").lsp_document_diagnostics()
+                    require("fzf-lua").diagnostics_document()
                 end,
                 desc = "Search buffer diagnostics",
             },
