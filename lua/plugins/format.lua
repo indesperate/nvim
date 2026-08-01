@@ -4,7 +4,6 @@ return {
     cmd = "ConformInfo",
     opts = {
         formatters_by_ft = {
-            python = { "ruff" },
             lua = { "stylua" },
             c = { "clang-format" },
             cpp = { "clang-format" },
@@ -14,7 +13,7 @@ return {
             javascript = { "biome" },
         },
         default_format_opts = {
-            lsp_format = "first",
+            lsp_format = "fallback",
         },
     },
     keys = {
