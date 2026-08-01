@@ -22,7 +22,7 @@ return {
                 lualine_a = { "mode" },
                 lualine_b = { "diff", "diagnostics" },
                 lualine_c = { "%S" },
-                lualine_x = { "encoding", "fileformat", "filetype" },
+                lualine_x = { "lsp_status", "encoding", "fileformat", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { "branch" },
             },
