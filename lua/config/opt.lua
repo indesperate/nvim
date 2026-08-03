@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 local opt = vim.opt
 
+-- workspace local nvim config
+opt.exrc = true
+
 -- search
 opt.ignorecase = true
 opt.smartcase = true
