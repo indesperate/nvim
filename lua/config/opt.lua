@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 local opt = vim.opt
 
+-- short messages
+opt.shortmess:append({ W = true, I = true, c = true, C = true })
+
 -- workspace local nvim config
 opt.exrc = true
 

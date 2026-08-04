@@ -1,15 +1,4 @@
 return {
-    -- upper bufferline
-    {
-        "akinsho/bufferline.nvim",
-        after = "catppuccin",
-        config = function()
-            require("bufferline").setup({
-                highlights = require("catppuccin.special.bufferline").get_theme(),
-            })
-        end,
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
     -- under status line
     {
         "nvim-lualine/lualine.nvim",
@@ -18,11 +7,17 @@ return {
                 theme = "catppuccin-nvim",
                 globalstatus = true,
             },
+            winbar = {
+                lualine_c = { "buffers" },
+            },
+            inactive_winbar = {
+                lualine_c = { "buffers" },
+            },
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "diff", "diagnostics" },
                 lualine_c = { "%S" },
-                lualine_x = { "lsp_status", "encoding", "fileformat", "filetype" },
+                lualine_x = { "searchcount", "lsp_status", "fileformat", "filetype", "encoding" },
                 lualine_y = { "progress" },
                 lualine_z = { "branch" },
             },
