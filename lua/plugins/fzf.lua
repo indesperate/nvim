@@ -3,7 +3,7 @@ return {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
-            { "max-perf" },
+            file_icon_padding = " ",
         },
         cmd = "FzfLua",
         keys = {
