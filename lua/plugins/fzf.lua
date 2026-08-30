@@ -8,13 +8,6 @@ return {
         cmd = "FzfLua",
         keys = {
             {
-                "<leader>ff",
-                function()
-                    require("fzf-lua").files()
-                end,
-                desc = "Find files",
-            },
-            {
                 "<leader>fr",
                 function()
                     require("fzf-lua").lsp_references()
@@ -34,13 +27,6 @@ return {
                     require("fzf-lua").diagnostics_document()
                 end,
                 desc = "Search buffer diagnostics",
-            },
-            {
-                "<leader>fg",
-                function()
-                    require("fzf-lua").live_grep()
-                end,
-                desc = "Live grep",
             },
             {
                 "<leader>fs",
