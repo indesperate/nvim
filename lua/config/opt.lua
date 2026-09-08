@@ -62,3 +62,11 @@ if vim.fn.executable("rg") == 1 then
     opt.grepformat = "%f:%l:%c:%m"
     opt.grepprg = "rg --vimgrep --smart-case"
 end
+
+-- extract the executable name
+local shell = vim.fn.fnamemodify(vim.o.shell, ":t"):lower()
+if shell == "nu" or shell == "nu.exe" then
+    vim.opt.shellcmdflag = "-c"
+    vim.opt.shellquote = ""
+    vim.opt.shellxquote = ""
+end
