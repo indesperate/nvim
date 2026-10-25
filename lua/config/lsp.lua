@@ -8,7 +8,7 @@ vim.lsp.enable({
     "neocmake",
     "clangd",
     "rust_analyzer",
-    "denols",
+    "tsc",
     "tombi",
     "ty",
     "ruff",
