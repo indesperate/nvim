@@ -16,7 +16,14 @@ return {
                 },
                 animate = { enabled = false },
             },
-            input = { enabled = true },
+            input = {
+                enabled = true,
+                win = {
+                    row = function()
+                        return math.floor((vim.o.lines - 3) / 2)
+                    end,
+                },
+            },
             picker = { enabled = true },
             quickfile = { enabled = true },
         },
