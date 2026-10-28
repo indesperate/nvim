@@ -1,13 +1,7 @@
 return {
     {
-        "carderne/pi-nvim",
-        main = "pi-nvim",
-        cmd = { "Pi", "PiSend", "PiSendFile", "PiSendSelection", "PiSendBuffer", "PiPing", "PiSessions" },
-        opts = { set_default_keymaps = false },
-        keys = {
-            { "<leader>p", "<cmd>PiSendFile<CR>", mode = "n", desc = "Send file to Pi" },
-            { "<leader>p", ":<C-u>PiSendSelection<CR>", mode = "x", desc = "Send selection to Pi" },
-        },
+        "Andy8647/pi-ide-context",
+        lazy = false,
     },
     {
         "nickjvandyke/opencode.nvim",
