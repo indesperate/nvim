@@ -33,10 +33,18 @@ function M.toggle(path)
         return
     end
     local bridge = assert(vim.api.nvim_get_runtime_file("lua/local_plugins/yazi/bridge.lua", false)[1])
+    -- Windows cannot execute the Lua bridge through its Unix shebang.
+    local function quote(value)
+        if vim.fn.has("win32") == 1 then
+            return '"' .. value .. '"'
+        end
+        return vim.fn.shellescape(value)
+    end
+    local editor = quote(vim.v.progpath) .. " -l " .. quote(bridge)
     terminal = Snacks.terminal.open({ "yazi", path or vim.fn.getcwd() }, {
         env = {
-            EDITOR = bridge,
-            VISUAL = bridge,
+            EDITOR = editor,
+            VISUAL = editor,
             YAZI_NVIM_SERVER = vim.v.servername ~= "" and vim.v.servername or vim.fn.serverstart(),
         },
         win = {

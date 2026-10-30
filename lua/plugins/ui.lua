@@ -54,16 +54,10 @@ return {
                 theme = "catppuccin-nvim",
                 globalstatus = true,
             },
-            winbar = {
-                lualine_c = { "buffers" },
-            },
-            inactive_winbar = {
-                lualine_c = { "buffers" },
-            },
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "diff", "diagnostics" },
-                lualine_c = { "%S" },
+                lualine_c = { "filename", "%S" },
                 lualine_x = { "selectioncount", "searchcount", "lsp_status", "filetype" },
                 lualine_y = { "progress" },
                 lualine_z = { "branch" },

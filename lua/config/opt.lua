@@ -35,6 +35,7 @@ vim.g.termfeatures = termfeatures
 
 -- Don't show mode since we have a status line
 opt.showmode = false
+opt.showtabline = 0
 
 -- list chars
 opt.list = true
